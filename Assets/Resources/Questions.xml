@@ -1,0 +1,124 @@
+<?xml version='1.0'?>
+<document>
+  
+  <question1>
+    <qns>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>3</answer>
+	</question1>
+
+  <question2>
+    <qns>Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>4</answer>
+  </question2>
+
+  <question3>
+    <qns>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>2</answer>
+  </question3>
+
+  <question4>
+    <qns>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. </qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>1</answer>
+  </question4>
+
+  <question5>
+    <qns>Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>1</answer>
+  </question5>
+
+  <question6>
+    <qns>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>2</answer>
+  </question6>
+
+  <question7>
+    <qns>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>3</answer>
+  </question7>
+
+  <question8>
+    <qns>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>4</answer>
+  </question8>
+
+  <question9>
+    <qns>It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. </qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>4</answer>
+  </question9>
+
+  <question10>
+    <qns>The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>2</answer>
+  </question10>
+
+  <question11>
+    <qns>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>1</answer>
+  </question11>
+
+  <question12>
+    <qns>Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur,</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>1</answer>
+  </question12>
+
+  <question13>
+    <qns>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>3</answer>
+  </question13>
+
+  <question14>
+    <qns>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>2</answer>
+  </question14>
+
+  <question15>
+    <qns>Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form,</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>4</answer>
+  </question15>
+
+  <question16>
+    <qns>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>3</answer>
+  </question16>
+
+  <question17>
+    <qns>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>4</answer>
+  </question17>
+
+  <question18>
+    <qns>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>1</answer>
+  </question18>
+
+  <question19>
+    <qns>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>2</answer>
+  </question19>
+
+  <question20>
+    <qns>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,</qns>
+    <choices>lorem|ipsum|dummy|text</choices>
+    <answer>1</answer>
+  </question20>
+
+</document>
