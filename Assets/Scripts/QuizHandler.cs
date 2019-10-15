@@ -15,9 +15,9 @@ public class QuizHandler : MonoBehaviour
     [SerializeField] private Slider numberSlider;
     [SerializeField] private TextMeshProUGUI currQuestionNo, timerDisplay, questionDisplay;
     [HideInInspector] public List<int> questionPool;
-    [SerializeField] public List<String> MCQChoices;
+    [HideInInspector] public List<String> MCQChoices;
     public List<GameObject> MCQButtons;
-    public List<GameObject> tempButtonList;
+    [HideInInspector] public List<GameObject> tempButtonList;
     private int questionProg, questionNo, totalQns, realAns, questionCount;
     private float timerMax, currTimer;
     private bool timerRun;
@@ -29,7 +29,7 @@ public class QuizHandler : MonoBehaviour
 
     private void Start()
     {
-        totalQns = 21;
+        totalQns = 20;
         questionCount = 20;
         numberSlider.maxValue = questionCount;
         questionPool = new List<int>();
@@ -52,6 +52,7 @@ public class QuizHandler : MonoBehaviour
         nextQuestion();
         timerMax = 30;
         timerRun = false;
+        timerDisplay.text = timerMax.ToString();
         numberSlider.value = questionProg;
         currQuestionNo.text = questionProg.ToString();
         quizPage.SetActive(true);
@@ -81,7 +82,7 @@ public class QuizHandler : MonoBehaviour
             int index = ran.Next(0, questionPool.Count);
             questionNo = questionPool[index];
             questionPool.RemoveAt(index);
-        } else
+        } else if (questionPool.Count == 1)
         {
             questionNo = questionPool[0];
             questionPool.Clear();
@@ -163,13 +164,14 @@ public class QuizHandler : MonoBehaviour
 
             if (currTimer <= 0)
             {
-                //endQuiz(false);
+                endQuiz(false);
             }
         }
     }
 
     private void endQuiz(bool complete)
     {
+        timerRun = false;
         quizPage.SetActive(false);
         EndingHandler.singleton.showEnd(complete);
     }

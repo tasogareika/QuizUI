@@ -18,7 +18,6 @@ public class LandingStartHandler : MonoBehaviour
     private void Start()
     {
         logo.GetComponent<ObjectFloat>().enabled = true;
-        secondCount = 3;
     }
 
     private void Update()
@@ -30,6 +29,13 @@ public class LandingStartHandler : MonoBehaviour
                 showStart();
             }
         }
+    }
+
+    public void backToLanding()
+    {
+        secondCount = 3;
+        landingPage.GetComponent<Animator>().Play("ReturnToStart");
+        logo.GetComponent<ObjectFloat>().enabled = true;
     }
 
     private void showStart()
@@ -72,6 +78,7 @@ public class LandingStartHandler : MonoBehaviour
     private IEnumerator showTutorial (float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+        tutorialBG.SetActive(true);
         tutorialBG.GetComponent<Animator>().Play("TutorialAppear");
     }
 

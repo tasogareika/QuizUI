@@ -8,6 +8,8 @@ public class EndingHandler : MonoBehaviour
     public static EndingHandler singleton;
     [SerializeField] private GameObject EndingPage;
     [SerializeField] private TextMeshProUGUI headerText, finalScore;
+    private float returnTimer, maxTimer;
+    private bool countdown;
 
     private void Awake()
     {
@@ -17,11 +19,29 @@ public class EndingHandler : MonoBehaviour
     private void Start()
     {
         EndingPage.SetActive(false);
+        maxTimer = 10f;
+        countdown = false;
+    }
+
+    private void Update()
+    {
+        if (countdown)
+        {
+            returnTimer -= Time.deltaTime;
+            if (returnTimer <= 0)
+            {
+                countdown = false;
+                EndingPage.SetActive(false);
+                LandingStartHandler.singleton.backToLanding();
+            }
+        }
     }
 
     public void showEnd(bool complete)
     {
         EndingPage.SetActive(true);
+        returnTimer = maxTimer;
+        countdown = true;
         
         if (complete)
         {
@@ -34,5 +54,11 @@ public class EndingHandler : MonoBehaviour
         }
 
         finalScore.text = QuizHandler.score.ToString();
+    }
+
+    public void GoToRegister()
+    {
+        EndingPage.SetActive(false);
+
     }
 }

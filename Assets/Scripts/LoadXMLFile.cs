@@ -9,8 +9,8 @@ public class LoadXMLFile : MonoBehaviour {
     public TextAsset questionsXML;
     private TextAsset xmlRawFile;
     public static LoadXMLFile singleton;
-    public string data, label, question, choices;
-    public int answer;
+    [HideInInspector] public string data, label, question, choices;
+    [HideInInspector] public int answer;
 
     void Awake()
     {
