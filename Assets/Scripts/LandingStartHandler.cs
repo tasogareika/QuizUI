@@ -17,6 +17,7 @@ public class LandingStartHandler : MonoBehaviour
 
     private void Start()
     {
+        secondCount = 3;
         logo.GetComponent<ObjectFloat>().enabled = true;
     }
 
@@ -33,7 +34,6 @@ public class LandingStartHandler : MonoBehaviour
 
     public void backToLanding()
     {
-        secondCount = 3;
         landingPage.GetComponent<Animator>().Play("ReturnToStart");
         logo.GetComponent<ObjectFloat>().enabled = true;
     }
@@ -48,6 +48,8 @@ public class LandingStartHandler : MonoBehaviour
     public void StartGame()
     {
         StopAllCoroutines();
+        secondCount = 3;
+        countdown.GetComponent<TextMeshProUGUI>().text = secondCount.ToString();
         landingPage.GetComponent<Animator>().Play("MoveToTut");
         StartCoroutine(showTutorial(1.5f));
     }

@@ -20,7 +20,7 @@ public class QuizHandler : MonoBehaviour
     [HideInInspector] public List<GameObject> tempButtonList;
     private int questionProg, questionNo, totalQns, realAns, questionCount;
     private float timerMax, currTimer;
-    private bool timerRun;
+    public bool timerRun;
 
     private void Awake()
     {
@@ -29,7 +29,6 @@ public class QuizHandler : MonoBehaviour
 
     private void Start()
     {
-        totalQns = 20;
         questionCount = 20;
         numberSlider.maxValue = questionCount;
         questionPool = new List<int>();
@@ -45,6 +44,7 @@ public class QuizHandler : MonoBehaviour
         score = 0;
         questionProg = 0;
         questionPool.Clear();
+        totalQns = LoadXMLFile.singleton.getNodeNumber();
         for (int i = 1; i < totalQns; i++)
         {
             questionPool.Add(i);
@@ -127,6 +127,7 @@ public class QuizHandler : MonoBehaviour
             var buttonHandler = MCQButtons[b].GetComponent<MCQButtonHandler>();
             buttonHandler.buttonText.text = choicesRef[b];
             buttonHandler.correct = answerRef[b];
+            MCQButtons[b].GetComponent<Image>().color = Color.white;
             if (buttonHandler.correct)
             {
                 Debug.Log("answer is " + buttonHandler.buttonText.text + ": " + MCQButtons[b].name);

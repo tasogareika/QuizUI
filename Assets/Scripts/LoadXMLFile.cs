@@ -28,6 +28,14 @@ public class LoadXMLFile : MonoBehaviour {
         parseXMLFile(data);
     }
 
+    public int getNodeNumber()
+    {
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.Load(new StringReader(data));
+        XmlNode root = xmlDoc.FirstChild;
+        return root.ChildNodes.Count;
+    }
+
     void parseXMLFile (string xmlData)
     {
         XmlDocument xmlDoc = new XmlDocument();

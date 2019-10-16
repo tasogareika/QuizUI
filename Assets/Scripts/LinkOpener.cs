@@ -16,7 +16,7 @@ public class LinkOpener : MonoBehaviour, IPointerClickHandler
             if (linkIndex > -1)
             { // was a link clicked?
                 TMP_LinkInfo linkInfo = pTextMeshPro.textInfo.linkInfo[linkIndex];
-
+                RegisterHandler.singleton.openTerms();
             }
         }
     }
