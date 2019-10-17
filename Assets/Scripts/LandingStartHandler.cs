@@ -48,6 +48,7 @@ public class LandingStartHandler : MonoBehaviour
     public void StartGame()
     {
         StopAllCoroutines();
+        startText.GetComponent<Button>().interactable = false;
         secondCount = 3;
         countdown.GetComponent<TextMeshProUGUI>().text = secondCount.ToString();
         landingPage.GetComponent<Animator>().Play("MoveToTut");
@@ -56,6 +57,7 @@ public class LandingStartHandler : MonoBehaviour
 
     public void StartQuiz()
     {
+        StopAllCoroutines();
         tutorialBG.SetActive(false);
         countdown.GetComponent<Animator>().Play("Countdown");
         StartCoroutine(countLoop(1.6f));
@@ -82,6 +84,7 @@ public class LandingStartHandler : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         tutorialBG.SetActive(true);
         tutorialBG.GetComponent<Animator>().Play("TutorialAppear");
+        StartCoroutine(closeTutorial(90f));
     }
 
     private IEnumerator returnToFloat (float waitTime)
@@ -90,6 +93,15 @@ public class LandingStartHandler : MonoBehaviour
         landingPage.GetComponent<Animator>().Play("New State");
         logo.GetComponent<ObjectFloat>().enabled = true;
         startText.GetComponent<Image>().color = Color.clear;
+    }
+
+    private IEnumerator closeTutorial (float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        tutorialBG.GetComponent<Animator>().Play("New State");
+        tutorialBG.SetActive(false);
+        startText.GetComponent<Image>().color = Color.clear;
+        backToLanding();
     }
 
     private IEnumerator countLoop (float waitTime)

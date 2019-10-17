@@ -50,7 +50,7 @@ public class QuizHandler : MonoBehaviour
             questionPool.Add(i);
         }
         nextQuestion();
-        timerMax = 30;
+        timerMax = 60;
         timerRun = false;
         timerDisplay.text = timerMax.ToString();
         numberSlider.value = questionProg;
@@ -121,13 +121,14 @@ public class QuizHandler : MonoBehaviour
             tempButtonList.RemoveAt(index);
         }
 
-        //transfer ref from Dict onto button choices
+        //transfer ref from Dict onto button choices and enable buttons again
         for (int b = 0; b < MCQButtons.Count; b++)
         {
             var buttonHandler = MCQButtons[b].GetComponent<MCQButtonHandler>();
             buttonHandler.buttonText.text = choicesRef[b];
             buttonHandler.correct = answerRef[b];
             MCQButtons[b].GetComponent<Image>().color = Color.white;
+            MCQButtons[b].GetComponent<Button>().interactable = true;
             if (buttonHandler.correct)
             {
                 Debug.Log("answer is " + buttonHandler.buttonText.text + ": " + MCQButtons[b].name);
@@ -137,6 +138,14 @@ public class QuizHandler : MonoBehaviour
 
         //continue timer
         timerRun = true;
+    }
+
+    public void closeButtons()
+    {
+        foreach (var b in MCQButtons)
+        {
+           b.GetComponent<Button>().interactable = false;
+        }
     }
 
     public void answerToggle (bool correct)

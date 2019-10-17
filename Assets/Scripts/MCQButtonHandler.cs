@@ -18,6 +18,7 @@ public class MCQButtonHandler : MonoBehaviour
         {
             GetComponent<Image>().color = Color.red;
         }
+        QuizHandler.singleton.closeButtons();
         StartCoroutine(nextQuestion(0.5f));
     }
 

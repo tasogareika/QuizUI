@@ -95,4 +95,17 @@ public class RegisterHandler : MonoBehaviour
             "\nScore: " + QuizHandler.score);
         writer.Close();
     }
+
+    public void SkipRegister()
+    {
+        DateTime currDT = DateTime.Now;
+        string path = "Assets/Resources/UnRegEntry_" + currDT.Year + currDT.Month + currDT.Day + "_" + currDT.Hour + currDT.Minute + ".txt";
+        StreamWriter writer = new StreamWriter(path, true);
+        writer.WriteLine("Date: " + currDT.ToShortDateString() +
+            "\nTime: " + currDT.ToShortTimeString() +
+            "\nScore: " + QuizHandler.score);
+        writer.Close();
+        registerPage.SetActive(false);
+        LastPageHandler.singleton.showLast();
+    }
 }

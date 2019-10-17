@@ -21,7 +21,7 @@ public class EndingHandler : MonoBehaviour
     private void Start()
     {
         EndingPage.SetActive(false);
-        maxTimer = 10f;
+        maxTimer = 90f;
         countdown = false;
     }
 
@@ -63,19 +63,5 @@ public class EndingHandler : MonoBehaviour
         countdown = false;
         EndingPage.SetActive(false);
         RegisterHandler.singleton.showRegister();
-    }
-
-    public void SkipRegister()
-    {
-        DateTime currDT = DateTime.Now;
-        string path = "Assets/Resources/UnRegEntry_" + currDT.Year + currDT.Month + currDT.Day + "_" + currDT.Hour + currDT.Minute + ".txt";
-        StreamWriter writer = new StreamWriter(path, true);
-        writer.WriteLine("Date: " + currDT.ToShortDateString() +
-            "\nTime: " + currDT.ToShortTimeString() +
-            "\nScore: " + QuizHandler.score);
-        writer.Close();
-        countdown = false;
-        EndingPage.SetActive(false);
-        LastPageHandler.singleton.showLast();
     }
 }
