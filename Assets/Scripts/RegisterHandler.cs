@@ -23,6 +23,31 @@ public class RegisterHandler : MonoBehaviour
         registerPage.SetActive(false);
     }
 
+    private void Update()
+    {
+        //ability to tab to next input when entering info 
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            GameObject obj = EventSystem.current.currentSelectedGameObject;
+            TMP_InputField input = obj.GetComponent<TMP_InputField>();
+            if (input != null)
+            {
+                for (int i = 0; i < entryFields.Count; i++)
+                {
+                    if (obj.name == entryFields[i].name)
+                    {
+                        int b = i + 1;
+                        if (b >= entryFields.Count)
+                        {
+                            b = 0;
+                        }
+                        EventSystem.current.SetSelectedGameObject(entryFields[b].gameObject);
+                    }
+                }
+            }
+        }
+    }
+
     public void showRegister()
     {
         registerPage.SetActive(true);
