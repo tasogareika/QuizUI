@@ -42,3 +42,5 @@ sysinfo.txt
 *.unitypackage
 *.mp4
 *.psd
+*.zip
+_exe/

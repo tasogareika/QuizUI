@@ -22,9 +22,11 @@ public class LastPageHandler : MonoBehaviour
 
     public void showLast()
     {
-        maxTimer = 10;
+        maxTimer = 12;
         currTimer = maxTimer;
         lastPage.SetActive(true);
+        lastPage.GetComponent<Animator>().Play("ShowLast");
+        AnimationHandler.singleton.lastPage(lastPage.GetComponent<Animator>());
         runTimer = true;
     }
 
@@ -36,15 +38,15 @@ public class LastPageHandler : MonoBehaviour
             if (currTimer <= 0)
             {
                 runTimer = false;
-                lastPage.SetActive(false);
+                lastPage.GetComponent<Animator>().Play("MoveToStart");
                 StartCoroutine(timeOut(1f));
             }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                currTimer = 0.1f;
-            }
         }
+    }
+
+    public void returnToStart()
+    {
+        currTimer = 0.1f;
     }
 
     IEnumerator timeOut(float waitTime)

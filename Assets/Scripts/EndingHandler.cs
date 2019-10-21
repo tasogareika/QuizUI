@@ -56,12 +56,15 @@ public class EndingHandler : MonoBehaviour
         }
 
         finalScore.text = QuizHandler.score.ToString();
+        EndingPage.GetComponent<Animator>().Play("EndingRollDown");
+        AnimationHandler.singleton.quizEndReturn(EndingPage.GetComponent<Animator>());
     }
 
     public void GoToRegister()
     {
         countdown = false;
-        EndingPage.SetActive(false);
+        EndingPage.GetComponent<Animator>().Play("MoveToReg");
         RegisterHandler.singleton.showRegister();
+        AnimationHandler.singleton.switchRegister(EndingPage.GetComponent<Animator>());
     }
 }

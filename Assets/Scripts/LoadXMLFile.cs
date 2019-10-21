@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using UnityEngine;
+using UnityEditor;
 
 public class LoadXMLFile : MonoBehaviour {
 
@@ -19,6 +20,11 @@ public class LoadXMLFile : MonoBehaviour {
 
     void Start()
     {
+        //in future: figure out external xml load?
+        /*AssetDatabase.ImportAsset(Application.dataPath + "/Resources/_Quetions.xml");
+        questionsXML = (TextAsset)Resources.Load("_Questions");*/
+
+        questionsXML = (TextAsset)Resources.Load("_Questions");
         xmlRawFile = questionsXML;
         data = xmlRawFile.text;
     }

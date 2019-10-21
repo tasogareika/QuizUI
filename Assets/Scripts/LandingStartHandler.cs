@@ -7,21 +7,27 @@ using UnityEngine.UI;
 public class LandingStartHandler : MonoBehaviour
 {
     public static LandingStartHandler singleton;
-    [SerializeField] private GameObject landingPage, logo, startText, tutorialBG, countdown;
+    [SerializeField] private GameObject landingPage, logo, tutorialBG, countdown;
     private int secondCount;
 
     private void Awake()
     {
         singleton = this;
+        //set portrait res
+        #if UNITY_STANDALONE
+        Screen.SetResolution(720, 1280, false);
+        #endif
     }
 
     private void Start()
     {
         secondCount = 3;
+        AnimationHandler.singleton.attachFunction("LandingStartHandler");
         logo.GetComponent<ObjectFloat>().enabled = true;
     }
 
-    private void Update()
+    //orginally had interaction of clicking/tapping screen to show start button, but decperated as it was unneeded
+    /*private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -30,11 +36,12 @@ public class LandingStartHandler : MonoBehaviour
                 showStart();
             }
         }
-    }
+    }*/
 
     public void backToLanding()
     {
         landingPage.GetComponent<Animator>().Play("ReturnToStart");
+        AnimationHandler.singleton.returnToStart(landingPage.GetComponent<Animator>());
         logo.GetComponent<ObjectFloat>().enabled = true;
     }
 
@@ -48,10 +55,11 @@ public class LandingStartHandler : MonoBehaviour
     public void StartGame()
     {
         StopAllCoroutines();
-        startText.GetComponent<Button>().interactable = false;
+        logo.GetComponent<ObjectFloat>().enabled = false;
         secondCount = 3;
         countdown.GetComponent<TextMeshProUGUI>().text = secondCount.ToString();
         landingPage.GetComponent<Animator>().Play("MoveToTut");
+        AnimationHandler.singleton.leaveScreen();
         StartCoroutine(showTutorial(1.5f));
     }
 
@@ -82,9 +90,11 @@ public class LandingStartHandler : MonoBehaviour
     private IEnumerator showTutorial (float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        tutorialBG.SetActive(true);
+        //removed tutorial segment as it is combined with landing page; directly start the game
+        StartQuiz();
+        /*tutorialBG.SetActive(true);
         tutorialBG.GetComponent<Animator>().Play("TutorialAppear");
-        StartCoroutine(closeTutorial(90f));
+        StartCoroutine(closeTutorial(90f));*/
     }
 
     private IEnumerator returnToFloat (float waitTime)
@@ -92,7 +102,6 @@ public class LandingStartHandler : MonoBehaviour
         yield return new WaitForSeconds (waitTime);
         landingPage.GetComponent<Animator>().Play("New State");
         logo.GetComponent<ObjectFloat>().enabled = true;
-        startText.GetComponent<Image>().color = Color.clear;
     }
 
     private IEnumerator closeTutorial (float waitTime)
@@ -100,7 +109,6 @@ public class LandingStartHandler : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         tutorialBG.GetComponent<Animator>().Play("New State");
         tutorialBG.SetActive(false);
-        startText.GetComponent<Image>().color = Color.clear;
         backToLanding();
     }
 

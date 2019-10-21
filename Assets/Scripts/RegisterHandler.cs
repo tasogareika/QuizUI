@@ -12,6 +12,10 @@ public class RegisterHandler : MonoBehaviour
     [SerializeField] private GameObject registerPage, termsPage;
     public List<TMP_InputField> entryFields;
     public Toggle checkTnC;
+    private string pathFile;
+    private float maxTimer, currTimer;
+    private bool timerRun;
+    private Vector2 lastPos;
 
     private void Awake()
     {
@@ -20,6 +24,14 @@ public class RegisterHandler : MonoBehaviour
 
     private void Start()
     {
+        maxTimer = 92f;
+        timerRun = false;
+
+        pathFile = Application.dataPath + "/" + "regEntries";
+        if (!Directory.Exists(pathFile))
+        {
+            Directory.CreateDirectory(pathFile);
+        }
         registerPage.SetActive(false);
     }
 
@@ -46,11 +58,40 @@ public class RegisterHandler : MonoBehaviour
                 }
             }
         }
+
+        //reset timer when there is activity
+        if (timerRun)
+        {
+            Vector2 currPos = Input.mousePosition;
+            currTimer -= Time.deltaTime;
+
+            if (currTimer <= 0)
+            {
+                timerRun = false;
+                SkipRegister();
+            }
+
+            if (Input.anyKeyDown || currPos != lastPos)
+            {
+                lastPos = currPos;
+                currTimer = maxTimer;
+            }
+        }
     }
 
     public void showRegister()
     {
         registerPage.SetActive(true);
+        //clear forms
+        foreach (var t in entryFields)
+        {
+            t.text = null;
+        }
+        checkTnC.isOn = false;
+        currTimer = maxTimer;
+        timerRun = true;
+        lastPos = Input.mousePosition;
+        registerPage.GetComponent<Animator>().Play("ShowReg");
     }
 
     public void openTerms()
@@ -68,7 +109,7 @@ public class RegisterHandler : MonoBehaviour
         if (registerCheck())
         {
             saveInformation();
-            registerPage.SetActive(false);
+            registerPage.GetComponent<Animator>().Play("MoveToEnd");
             LastPageHandler.singleton.showLast();
         } 
     }
@@ -108,7 +149,7 @@ public class RegisterHandler : MonoBehaviour
     private void saveInformation()
     {
         DateTime currDT = DateTime.Now;
-        string path = "Assets/Resources/" + entryFields[0].text + entryFields[1].text + "_" + currDT.Year + currDT.Month + currDT.Day + "_" + currDT.Hour + currDT.Minute + ".txt";
+        string path = pathFile + "/" + entryFields[0].text + entryFields[1].text + "_" + currDT.Year + currDT.Month + currDT.Day + "_" + currDT.Hour + currDT.Minute + ".txt";
         StreamWriter writer = new StreamWriter(path, true);
         writer.WriteLine("Date: " + currDT.ToShortDateString() +
             "\nTime: " + currDT.ToShortTimeString() +
@@ -124,13 +165,13 @@ public class RegisterHandler : MonoBehaviour
     public void SkipRegister()
     {
         DateTime currDT = DateTime.Now;
-        string path = "Assets/Resources/UnRegEntry_" + currDT.Year + currDT.Month + currDT.Day + "_" + currDT.Hour + currDT.Minute + ".txt";
+        string path = pathFile + "/UnRegEntry_" + currDT.Year + currDT.Month + currDT.Day + "_" + currDT.Hour + currDT.Minute + ".txt";
         StreamWriter writer = new StreamWriter(path, true);
         writer.WriteLine("Date: " + currDT.ToShortDateString() +
             "\nTime: " + currDT.ToShortTimeString() +
             "\nScore: " + QuizHandler.score);
         writer.Close();
-        registerPage.SetActive(false);
+        registerPage.GetComponent<Animator>().Play("MoveToEnd");
         LastPageHandler.singleton.showLast();
     }
 }
