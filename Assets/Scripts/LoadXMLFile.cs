@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Xml;
 using UnityEngine;
-using UnityEditor;
 
 public class LoadXMLFile : MonoBehaviour {
 

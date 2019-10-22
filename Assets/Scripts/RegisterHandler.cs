@@ -27,11 +27,12 @@ public class RegisterHandler : MonoBehaviour
         maxTimer = 92f;
         timerRun = false;
 
-        pathFile = Application.dataPath + "/" + "regEntries";
+        pathFile = Application.dataPath + "/" + "regEntries"; //directory creation for data entries
         if (!Directory.Exists(pathFile))
         {
             Directory.CreateDirectory(pathFile);
         }
+
         registerPage.SetActive(false);
     }
 
@@ -68,7 +69,7 @@ public class RegisterHandler : MonoBehaviour
             if (currTimer <= 0)
             {
                 timerRun = false;
-                SkipRegister();
+                SkipRegister(); //timeout
             }
 
             if (Input.anyKeyDown || currPos != lastPos)
@@ -97,11 +98,13 @@ public class RegisterHandler : MonoBehaviour
     public void openTerms()
     {
         termsPage.SetActive(true);
+        AnimationHandler.singleton.toggleButton();
     }
 
     public void closeTerms()
     {
         termsPage.SetActive(false);
+        AnimationHandler.singleton.toggleButton();
     }
 
     public void clickRegister()
@@ -114,7 +117,7 @@ public class RegisterHandler : MonoBehaviour
         } 
     }
 
-    public bool registerCheck()
+    public bool registerCheck() //checking to see if all entries are filled and the check for terms and conditions is toggled on
     {
         for (int i = 0; i < entryFields.Count; i++)
         {
@@ -122,6 +125,18 @@ public class RegisterHandler : MonoBehaviour
             if (empty)
             {
                 entryFields[i].GetComponent<Image>().color = Color.red;
+                foreach (var entry in entryFields)
+                {
+                    if (string.IsNullOrEmpty(entry.text))
+                    {
+                        entry.GetComponent<Image>().color = Color.red;
+                    }
+                }
+
+                if (!checkTnC.isOn)
+                {
+                    checkTnC.transform.GetChild(0).GetComponent<Image>().color = Color.red;;
+                }
                 return false;
             }
         }
@@ -135,10 +150,20 @@ public class RegisterHandler : MonoBehaviour
         return true;
     }
 
+    public void formClicked() //previously only had the first empty item to give feedback, changed to all
+    {
+        selectToggle();
+        selectInput();
+    }
+
     public void selectInput()
     {
-        GameObject obj = EventSystem.current.currentSelectedGameObject;
-        obj.GetComponent<Image>().color = Color.white;
+        /*GameObject obj = EventSystem.current.currentSelectedGameObject;
+        obj.GetComponent<Image>().color = Color.white;*/
+        foreach (var entry in entryFields)
+        {
+            entry.GetComponent<Image>().color = Color.white;
+        }
     }
 
     public void selectToggle()
@@ -146,7 +171,7 @@ public class RegisterHandler : MonoBehaviour
         checkTnC.transform.GetChild(0).GetComponent<Image>().color = Color.white;
     }
 
-    private void saveInformation()
+    private void saveInformation() //save information from register page
     {
         DateTime currDT = DateTime.Now;
         string path = pathFile + "/" + entryFields[0].text + entryFields[1].text + "_" + currDT.Year + currDT.Month + currDT.Day + "_" + currDT.Hour + currDT.Minute + ".txt";
@@ -162,7 +187,7 @@ public class RegisterHandler : MonoBehaviour
         writer.Close();
     }
 
-    public void SkipRegister()
+    public void SkipRegister() //triggers upon time out on info page; save info just in case
     {
         DateTime currDT = DateTime.Now;
         string path = pathFile + "/UnRegEntry_" + currDT.Year + currDT.Month + currDT.Day + "_" + currDT.Hour + currDT.Minute + ".txt";

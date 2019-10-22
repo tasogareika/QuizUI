@@ -1,8 +1,6 @@
 ﻿using TMPro;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class LandingStartHandler : MonoBehaviour
 {
@@ -16,6 +14,7 @@ public class LandingStartHandler : MonoBehaviour
         //set portrait res
         #if UNITY_STANDALONE
         Screen.SetResolution(720, 1280, false);
+        //Screen.SetResolution(1080, 1920, false);
         #endif
     }
 

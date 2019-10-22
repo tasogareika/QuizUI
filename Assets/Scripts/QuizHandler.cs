@@ -39,12 +39,12 @@ public class QuizHandler : MonoBehaviour
         quizPage.SetActive(false);
     }
 
-    public void beginQuiz()
+    public void beginQuiz() //start of quiz setup
     {
         score = 0;
         questionProg = 0;
         questionPool.Clear();
-        totalQns = LoadXMLFile.singleton.getNodeNumber();
+        totalQns = LoadXMLFile.singleton.getNodeNumber(); //get all questions from XML file
         for (int i = 1; i < totalQns; i++)
         {
             questionPool.Add(i);
@@ -140,7 +140,7 @@ public class QuizHandler : MonoBehaviour
         timerRun = true;
     }
 
-    public void closeButtons()
+    public void closeButtons() //disable buttons to prevent double responses to a question
     {
         foreach (var b in MCQButtons)
         {
@@ -148,7 +148,7 @@ public class QuizHandler : MonoBehaviour
         }
     }
 
-    public void answerToggle (bool correct)
+    public void answerToggle (bool correct) //trigged when user presses a button to answer
     {
         if (correct)
         {
@@ -179,7 +179,7 @@ public class QuizHandler : MonoBehaviour
         }
     }
 
-    private void endQuiz(bool complete)
+    private void endQuiz(bool complete) //end of quiz
     {
         timerRun = false;
         quizPage.SetActive(false);

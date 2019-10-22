@@ -124,6 +124,17 @@ public class AnimationHandler : MonoBehaviour
         mainButton.GetComponent<Button>().interactable = false;
     }
 
+    public void toggleButton()
+    {
+        if (mainButton.activeInHierarchy)
+        {
+            mainButton.SetActive(false);
+        } else
+        {
+            mainButton.SetActive(true);
+        }
+    }
+
     IEnumerator enableButton (float waitTime, string pageType)
     {
         yield return new WaitForSeconds (waitTime);
