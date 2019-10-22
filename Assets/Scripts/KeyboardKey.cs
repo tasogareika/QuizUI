@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class KeyboardKey : MonoBehaviour
 {
@@ -41,6 +42,12 @@ public class KeyboardKey : MonoBehaviour
                 }
 
                 KeyboardHandler.singleton.shiftPressed(shiftPressed);
+            } else if (isBackSpace)
+            {
+                KeyboardHandler.singleton.backSpace();
+            } else if (isSpace)
+            {
+                KeyboardHandler.singleton.letterSpace();
             }
         }
     }

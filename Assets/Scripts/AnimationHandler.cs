@@ -47,6 +47,14 @@ public class AnimationHandler : MonoBehaviour
                 case "ReturnToStart":
                     time = clips[i].length;
                     break;
+
+                case "KeyboardHide":
+                    time = clips[i].length;
+                    break;
+
+                case "KeyboardAppear":
+                    time = clips[i].length;
+                    break;
             }
         }
         returnTime = time;

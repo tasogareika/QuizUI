@@ -540,6 +540,7 @@ MonoBehaviour:
   - {fileID: 924317112}
   - {fileID: 255245750}
   checkTnC: {fileID: 1841417978}
+  inputSelectColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
 --- !u!114 &170076740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1330,6 +1331,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282289629}
   m_CullTransparentMesh: 0
+--- !u!1 &286776610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8911485057038678531, guid: 68b0e66648d2d0d4088dbe6ed26a5138,
+    type: 3}
+  m_PrefabInstance: {fileID: 8911485057434991012}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &286776611
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286776610}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d404805b1527e7e4cbcf10aeff996b49, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &335615872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1972,7 +1998,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 640228910}
   m_OnClick:
     m_PersistentCalls:
@@ -4929,7 +4955,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1017158818}
   m_OnClick:
     m_PersistentCalls:
@@ -6585,7 +6611,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1299152812}
   m_OnClick:
     m_PersistentCalls:
@@ -6731,7 +6757,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1393301595}
   m_OnClick:
     m_PersistentCalls:
@@ -10775,7 +10801,7 @@ PrefabInstance:
     - target: {fileID: 8911485057038678540, guid: 68b0e66648d2d0d4088dbe6ed26a5138,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8911485057038678540, guid: 68b0e66648d2d0d4088dbe6ed26a5138,
         type: 3}
@@ -10785,7 +10811,7 @@ PrefabInstance:
     - target: {fileID: 8911485057038678540, guid: 68b0e66648d2d0d4088dbe6ed26a5138,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8911485057038678540, guid: 68b0e66648d2d0d4088dbe6ed26a5138,
         type: 3}
@@ -10795,7 +10821,7 @@ PrefabInstance:
     - target: {fileID: 8911485057038678540, guid: 68b0e66648d2d0d4088dbe6ed26a5138,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8911485057920243858, guid: 68b0e66648d2d0d4088dbe6ed26a5138,
         type: 3}

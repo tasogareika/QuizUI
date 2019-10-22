@@ -12,9 +12,10 @@ public class RegisterHandler : MonoBehaviour
     [SerializeField] private GameObject registerPage, termsPage;
     public List<TMP_InputField> entryFields;
     public Toggle checkTnC;
+    public Color inputSelectColor;
     private string pathFile;
     private float maxTimer, currTimer;
-    private bool timerRun;
+    private bool timerRun, mobileShift;
     private Vector2 lastPos;
 
     private void Awake()
@@ -77,6 +78,25 @@ public class RegisterHandler : MonoBehaviour
                 lastPos = currPos;
                 currTimer = maxTimer;
             }
+
+            //hide keyboard when no input is clicked
+            if (Input.GetMouseButtonDown(0))
+            {
+                GameObject obj = EventSystem.current.currentSelectedGameObject;
+                if (obj == null && !KeyboardHandler.singleton.touchingKeys && KeyboardHandler.singleton.isOnScreen)
+                {
+                    foreach (var entry in entryFields)
+                    {
+                        entry.GetComponent<Image>().color = Color.white;
+                    }
+                    KeyboardHandler.singleton.hideKeyboard();
+
+                    if (mobileShift)
+                    {
+                        numberToggle(mobileShift);
+                    }
+                }
+            }
         }
     }
 
@@ -91,6 +111,7 @@ public class RegisterHandler : MonoBehaviour
         checkTnC.isOn = false;
         currTimer = maxTimer;
         timerRun = true;
+        mobileShift = false;
         lastPos = Input.mousePosition;
         registerPage.GetComponent<Animator>().Play("ShowReg");
     }
@@ -141,6 +162,26 @@ public class RegisterHandler : MonoBehaviour
             }
         }
 
+        //check email validity
+        foreach (var entry in entryFields)
+        {
+            if (entry.name == "EmailInput")
+            {
+                string emailAdd = entry.text.ToString();
+                if (emailAdd.Length < 5 || !emailAdd.Contains("@") || !emailAdd.Contains("."))
+                {
+                    entry.GetComponent<Image>().color = Color.red;
+
+                    if (!checkTnC.isOn)
+                    {
+                        checkTnC.transform.GetChild(0).GetComponent<Image>().color = Color.red;
+                    }
+
+                    return false;
+                }
+            }
+        }
+
         if (!checkTnC.isOn)
         {
             checkTnC.transform.GetChild(0).GetComponent<Image>().color = Color.red;
@@ -166,7 +207,22 @@ public class RegisterHandler : MonoBehaviour
             entry.GetComponent<Image>().color = Color.white;
             if (entry.gameObject == obj)
             {
+                if (entry.name != "MobileInput" && mobileShift == true)
+                {
+                    numberToggle(mobileShift);
+                }
+
+                entry.GetComponent<Image>().color = inputSelectColor;
+                if (!KeyboardHandler.singleton.isOnScreen)
+                {
+                    KeyboardHandler.singleton.showKeyboard();
+                }
                 KeyboardHandler.singleton.currInput = obj.GetComponent<TMP_InputField>();
+
+                if (entry.name == "MobileInput" && mobileShift == false)
+                {
+                    numberToggle(mobileShift);
+                }
             }
         }
     }
@@ -175,6 +231,19 @@ public class RegisterHandler : MonoBehaviour
     {
         KeyboardHandler.singleton.currInput = null;
         checkTnC.transform.GetChild(0).GetComponent<Image>().color = Color.white;
+    }
+
+    private void numberToggle(bool on)
+    {
+        if (!on)
+        {
+            mobileShift = true;
+            registerPage.GetComponent<Animator>().Play("RegShiftUp");
+        } else
+        {
+            mobileShift = false;
+            registerPage.GetComponent<Animator>().Play("RegShiftDown");
+        }
     }
 
     private void saveInformation() //save information from register page
