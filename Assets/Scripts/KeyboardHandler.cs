@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using TMPro;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class KeyboardHandler : MonoBehaviour
 {
     public static KeyboardHandler singleton;
     public List<GameObject> keyboardKeys;
+    public TMP_InputField currInput;
 
     private void Awake()
     {
@@ -37,6 +39,14 @@ public class KeyboardHandler : MonoBehaviour
                     key.textDisplay.text = key.keyData.ToString();
                 }
             }
+        }
+    }
+
+    public void textEntry(string s)
+    {
+        if (currInput != null)
+        {
+            currInput.text += s;
         }
     }
 }

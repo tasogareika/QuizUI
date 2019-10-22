@@ -26,7 +26,8 @@ public class KeyboardKey : MonoBehaviour
     {
         if (!isSpecialKey())
         {
-            Debug.Log(textDisplay.text.ToString());
+            //input character
+            KeyboardHandler.singleton.textEntry(textDisplay.text.ToString());
         } else
         {
             if (isShift)

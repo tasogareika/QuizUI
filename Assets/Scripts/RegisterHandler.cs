@@ -158,16 +158,22 @@ public class RegisterHandler : MonoBehaviour
 
     public void selectInput()
     {
-        /*GameObject obj = EventSystem.current.currentSelectedGameObject;
-        obj.GetComponent<Image>().color = Color.white;*/
+        GameObject obj = EventSystem.current.currentSelectedGameObject;
+        
+        //obj.GetComponent<Image>().color = Color.white;
         foreach (var entry in entryFields)
         {
             entry.GetComponent<Image>().color = Color.white;
+            if (entry.gameObject == obj)
+            {
+                KeyboardHandler.singleton.currInput = obj.GetComponent<TMP_InputField>();
+            }
         }
     }
 
     public void selectToggle()
     {
+        KeyboardHandler.singleton.currInput = null;
         checkTnC.transform.GetChild(0).GetComponent<Image>().color = Color.white;
     }
 
