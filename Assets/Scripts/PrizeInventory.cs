@@ -29,18 +29,22 @@ public class PrizeInventory : MonoBehaviour
         StreamReader reader = new StreamReader(path);
         string words = reader.ReadToEnd();
         reader.Close();
+        Debug.Log(words);
         return words;
     }
 
     private void formatPrizeList() //put each indv prize onto a list cell
     {
-        string[] prizes = lastData.Split('\n');
+        string[] prizes = lastData.Split('/');
         foreach (string s in prizes)
         {
-            string[] eachPrize = s.Split('/');
-            prizeList.Add(eachPrize[1]);
+            string[] eachPrize = s.Split('-');
+            if (eachPrize.Length > 1)
+            {
+                prizeList.Add(eachPrize[1]);
+            }
         }
-    }
+    }   
 
     public void getPrize(int score)
     {
@@ -66,8 +70,28 @@ public class PrizeInventory : MonoBehaviour
         }
     }
 
-    public void updateInventory()
+    public void updateInventory(int prizeClaimed)
     {
+        int prizeIndex = prizeClaimed - 1;
+        int prizesLeft = int.Parse(prizeList[prizeIndex]);
+        prizesLeft--;
+        prizeList[prizeIndex] = prizesLeft.ToString();
 
+        //delete previous file for rewriting
+        File.Delete(path);
+        StreamWriter writer = new StreamWriter(path, true);
+
+        for (int i = 0; i < prizeList.Count; i++)
+        {
+            int n = i + 1;
+            writer.Write("\nPrize " + n + "-" + prizeList[i] + "/");
+        }
+
+        writer.Close();
+        prizeList.Clear();
+
+        //reimport for update
+        lastData = readInventory();
+        formatPrizeList();
     }
 }

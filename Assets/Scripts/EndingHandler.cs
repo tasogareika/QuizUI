@@ -6,7 +6,8 @@ public class EndingHandler : MonoBehaviour
 {
     public static EndingHandler singleton;
     public List<Sprite> scoreImgs;
-    [SerializeField] private GameObject EndingPage, scoreDisplay;
+    public Sprite wellDone, timesUp;
+    [SerializeField] private GameObject EndingPage, scoreDisplay, header;
     private float returnTimer, maxTimer;
     private bool countdown;
 
@@ -45,9 +46,11 @@ public class EndingHandler : MonoBehaviour
         if (complete)
         {
             //if user finishes quiz
+            header.GetComponent<Image>().sprite = wellDone;
         } else
         {
             //if user runs out of time
+            header.GetComponent<Image>().sprite = timesUp;
         }
 
         //display score

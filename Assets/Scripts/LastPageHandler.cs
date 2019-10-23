@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using TMPro;
+using System.Collections;
 using UnityEngine;
 
 public class LastPageHandler : MonoBehaviour
 {
     public static LastPageHandler singleton;
-    [SerializeField] private GameObject lastPage;
+    [SerializeField] private GameObject lastPage, prizeDisplay;
     private float maxTimer, currTimer;
     private bool runTimer;
 
@@ -26,6 +27,7 @@ public class LastPageHandler : MonoBehaviour
         lastPage.SetActive(true);
         PrizeInventory.singleton.getPrize(QuizHandler.score);
         lastPage.GetComponent<Animator>().Play("ShowLast");
+        prizeDisplay.GetComponent<TextMeshProUGUI>().text = PrizeInventory.singleton.prizeNo.ToString();
         AnimationHandler.singleton.lastPage(lastPage.GetComponent<Animator>());
         runTimer = true;
     }
@@ -47,6 +49,7 @@ public class LastPageHandler : MonoBehaviour
 
     public void returnToStart()
     {
+        PrizeInventory.singleton.updateInventory(PrizeInventory.singleton.prizeNo);
         currTimer = 0.1f;
     }
 

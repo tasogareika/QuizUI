@@ -119,6 +119,14 @@ public class RegisterHandler : MonoBehaviour
     public void openTerms()
     {
         termsPage.SetActive(true);
+        if (KeyboardHandler.singleton.isOnScreen)
+        {
+           if (mobileShift)
+            {
+                numberToggle(mobileShift);
+            }
+            KeyboardHandler.singleton.hideKeyboard();
+        }
         AnimationHandler.singleton.toggleButton();
     }
 
