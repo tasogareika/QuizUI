@@ -24,6 +24,7 @@ public class LastPageHandler : MonoBehaviour
         maxTimer = 12;
         currTimer = maxTimer;
         lastPage.SetActive(true);
+        PrizeInventory.singleton.getPrize(QuizHandler.score);
         lastPage.GetComponent<Animator>().Play("ShowLast");
         AnimationHandler.singleton.lastPage(lastPage.GetComponent<Animator>());
         runTimer = true;
@@ -38,6 +39,7 @@ public class LastPageHandler : MonoBehaviour
             {
                 runTimer = false;
                 lastPage.GetComponent<Animator>().Play("MoveToStart");
+                AnimationHandler.singleton.topBGVanish();
                 StartCoroutine(timeOut(1f));
             }
         }

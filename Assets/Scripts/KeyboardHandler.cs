@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -115,6 +116,32 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
         if (currInput != null)
         {
             currInput.text += " ";
+        }
+    }
+
+    public void numberToggle(bool show)
+    {
+        if (show)
+        {
+            foreach (var k in keyboardKeys)
+            {
+                var key = k.GetComponent<KeyboardKey>();
+                if (!key.isBackSpace && !key.isShift && !key.isSpace)
+                {
+                    int i;
+                    if (!int.TryParse(key.keyData, out i))
+                    {
+                        k.GetComponent<Button>().interactable = false;
+                    }
+                }
+            }
+        }
+        else
+        {
+            foreach (var k in keyboardKeys)
+            {
+                k.GetComponent<Button>().interactable = true;
+            }
         }
     }
 

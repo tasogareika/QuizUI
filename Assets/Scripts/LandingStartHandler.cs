@@ -1,11 +1,14 @@
 ﻿using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LandingStartHandler : MonoBehaviour
 {
     public static LandingStartHandler singleton;
-    [SerializeField] private GameObject landingPage, logo, tutorialBG, countdown;
+    [SerializeField] private GameObject landingPage, logo, tutorialBG, countdown, countdownImg;
+    public List<Sprite> countDownNos;
     private int secondCount;
 
     private void Awake()
@@ -22,6 +25,7 @@ public class LandingStartHandler : MonoBehaviour
     {
         secondCount = 3;
         AnimationHandler.singleton.attachFunction("LandingStartHandler");
+        countdown.GetComponent<Animator>().Play("CountStart");
         logo.GetComponent<ObjectFloat>().enabled = true;
     }
 
@@ -39,6 +43,7 @@ public class LandingStartHandler : MonoBehaviour
 
     public void backToLanding()
     {
+        countdown.GetComponent<Animator>().Play("CountStart");
         landingPage.GetComponent<Animator>().Play("ReturnToStart");
         AnimationHandler.singleton.returnToStart(landingPage.GetComponent<Animator>());
         logo.GetComponent<ObjectFloat>().enabled = true;
@@ -56,8 +61,9 @@ public class LandingStartHandler : MonoBehaviour
         StopAllCoroutines();
         logo.GetComponent<ObjectFloat>().enabled = false;
         secondCount = 3;
-        countdown.GetComponent<TextMeshProUGUI>().text = secondCount.ToString();
         landingPage.GetComponent<Animator>().Play("MoveToTut");
+        countdownImg.GetComponent<Image>().sprite = countDownNos[secondCount];
+        countdown.GetComponent<Animator>().Play("MoveToCount");
         AnimationHandler.singleton.leaveScreen();
         StartCoroutine(showTutorial(1.5f));
     }
@@ -75,14 +81,19 @@ public class LandingStartHandler : MonoBehaviour
         if (secondCount > 1)
         {
             secondCount--;
-            countdown.GetComponent<TextMeshProUGUI>().text = secondCount.ToString();
+            countdownImg.GetComponent<Image>().sprite = countDownNos[secondCount];
             countdown.GetComponent<Animator>().Play("Countdown");
             StartCoroutine(countLoop(1.6f));
-        }
+        } 
         else
         {
-            countdown.GetComponent<Animator>().Play("New State");
+            countdown.GetComponent<Animator>().Play("CountStart");
             QuizHandler.singleton.beginQuiz();
+        }
+
+        if (secondCount == 1)
+        {
+            AnimationHandler.singleton.logoVanish();
         }
     }
 

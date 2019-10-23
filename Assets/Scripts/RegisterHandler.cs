@@ -244,6 +244,7 @@ public class RegisterHandler : MonoBehaviour
             mobileShift = false;
             registerPage.GetComponent<Animator>().Play("RegShiftDown");
         }
+        KeyboardHandler.singleton.numberToggle(mobileShift);
     }
 
     private void saveInformation() //save information from register page

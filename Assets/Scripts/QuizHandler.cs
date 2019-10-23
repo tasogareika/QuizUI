@@ -49,7 +49,6 @@ public class QuizHandler : MonoBehaviour
         {
             questionPool.Add(i);
         }
-        nextQuestion();
         timerMax = 60;
         timerRun = false;
         timerDisplay.text = timerMax.ToString();
@@ -190,6 +189,6 @@ public class QuizHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         currTimer = timerMax;
-        timerRun = true;
+        nextQuestion();
     }
 }

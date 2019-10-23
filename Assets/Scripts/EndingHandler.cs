@@ -1,11 +1,12 @@
-﻿using TMPro;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EndingHandler : MonoBehaviour
 {
     public static EndingHandler singleton;
-    [SerializeField] private GameObject EndingPage;
-    [SerializeField] private TextMeshProUGUI headerText, finalScore;
+    public List<Sprite> scoreImgs;
+    [SerializeField] private GameObject EndingPage, scoreDisplay;
     private float returnTimer, maxTimer;
     private bool countdown;
 
@@ -44,15 +45,16 @@ public class EndingHandler : MonoBehaviour
         if (complete)
         {
             //if user finishes quiz
-            headerText.text = "Quiz Complete!";
         } else
         {
             //if user runs out of time
-            headerText.text = "Time's Up!";
         }
 
-        finalScore.text = QuizHandler.score.ToString();
+        //display score
+        scoreDisplay.GetComponent<Image>().sprite = scoreImgs[QuizHandler.score];
         EndingPage.GetComponent<Animator>().Play("EndingRollDown");
+        AnimationHandler.singleton.topBGRollDown();
+        AnimationHandler.singleton.logoReturn();
         AnimationHandler.singleton.quizEndReturn(EndingPage.GetComponent<Animator>());
     }
 

@@ -7,16 +7,17 @@ public class MCQButtonHandler : MonoBehaviour
 {
     public bool correct;
     public TextMeshProUGUI buttonText;
+    public Sprite normalBtn, correctImg, wrongImg;
 
     public void checkAnswer()
     {
         QuizHandler.singleton.timerRun = false;
         if (correct)
         {
-            GetComponent<Image>().color = Color.green;
+            GetComponent<Image>().sprite = correctImg;
         } else
         {
-            GetComponent<Image>().color = Color.red;
+            GetComponent<Image>().sprite = wrongImg;
         }
         QuizHandler.singleton.closeButtons();
         StartCoroutine(nextQuestion(0.5f));
@@ -25,6 +26,7 @@ public class MCQButtonHandler : MonoBehaviour
     private IEnumerator nextQuestion (float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+        GetComponent<Image>().sprite = normalBtn;
         QuizHandler.singleton.answerToggle(correct);
     }
 }

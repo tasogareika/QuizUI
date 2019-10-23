@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +8,8 @@ public class AnimationHandler : MonoBehaviour
 {
     public static AnimationHandler singleton;
     private float time;
-    [SerializeField] private GameObject mainButton, buttonText;
+    [SerializeField] private GameObject mainButton, buttonText, topBG, logo;
+    public List<Sprite> buttonLines;
     private Animator thisAnim;
 
     private void Awake()
@@ -92,7 +94,46 @@ public class AnimationHandler : MonoBehaviour
 
     public void changeText (string text) //change text of button
     {
-        buttonText.GetComponent<TextMeshProUGUI>().text = text;
+        //change button text image according to what is passed
+        switch (text)
+        {
+            case "Tap to continue":
+                buttonText.GetComponent<Image>().sprite = buttonLines[1];
+                break;
+
+            case "Get Reward":
+                buttonText.GetComponent<Image>().sprite = buttonLines[2];
+                break;
+
+            case "Register":
+                buttonText.GetComponent<Image>().sprite = buttonLines[3];
+                break;
+
+            case "Tap here to start":
+                buttonText.GetComponent<Image>().sprite = buttonLines[0];
+                break;
+        }
+        
+    }
+
+    public void topBGRollDown()
+    {
+        topBG.GetComponent<Animator>().Play("BGRollDown");
+    }
+
+    public void topBGVanish()
+    {
+        topBG.GetComponent<Animator>().Play("BGAway");
+    }
+
+    public void logoVanish()
+    {
+        logo.GetComponent<Animator>().Play("LogoVanish");
+    }
+
+    public void logoReturn()
+    {
+        logo.GetComponent<Animator>().Play("LogoReturn");
     }
 
     public void returnToStart(Animator anim)
