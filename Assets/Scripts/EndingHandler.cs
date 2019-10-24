@@ -70,6 +70,7 @@ public class EndingHandler : MonoBehaviour
         BackendHandler.singleton.playPageMove();
         EndingPage.GetComponent<Animator>().Play("MoveToReg");
         RegisterHandler.singleton.showRegister();
+        PrizeInventory.singleton.getPrize(QuizHandler.score);
         AnimationHandler.singleton.switchRegister(EndingPage.GetComponent<Animator>());
     }
 }

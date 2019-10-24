@@ -26,7 +26,6 @@ public class LastPageHandler : MonoBehaviour
         currTimer = maxTimer;
         lastPage.SetActive(true);
         BackendHandler.singleton.playPageMove();
-        PrizeInventory.singleton.getPrize(QuizHandler.score);
         lastPage.GetComponent<Animator>().Play("ShowLast");
         prizeDisplay.GetComponent<TextMeshProUGUI>().text = PrizeInventory.singleton.prizeNo.ToString();
         AnimationHandler.singleton.lastPage(lastPage.GetComponent<Animator>());

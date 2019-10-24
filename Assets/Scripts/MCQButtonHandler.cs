@@ -19,10 +19,22 @@ public class MCQButtonHandler : MonoBehaviour
         } else
         {
             GetComponent<Image>().sprite = wrongImg;
+            QuizHandler.singleton.showCorrectAnswer();
             BackendHandler.singleton.playWrongAns();
         }
         QuizHandler.singleton.closeButtons();
         StartCoroutine(nextQuestion(0.5f));
+    }
+
+    public void resetImage()
+    {
+        StartCoroutine(imageBack(0.5f));
+    }
+
+    private IEnumerator imageBack(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<Image>().sprite = normalBtn;
     }
 
     private IEnumerator nextQuestion (float waitTime)

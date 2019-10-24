@@ -165,6 +165,18 @@ public class QuizHandler : MonoBehaviour
         }
     }
 
+    public void showCorrectAnswer () //shows correct ans when user picks the wrong one
+    {
+        foreach (var b in MCQButtons)
+        {
+            if (b.GetComponent<MCQButtonHandler>().correct)
+            {
+                b.GetComponent<Image>().sprite = b.GetComponent<MCQButtonHandler>().correctImg;
+                b.GetComponent<MCQButtonHandler>().resetImage();
+            }
+        }
+    }
+
     private void Update()
     {
         if (timerRun)

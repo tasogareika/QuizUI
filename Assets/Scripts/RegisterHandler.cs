@@ -28,12 +28,7 @@ public class RegisterHandler : MonoBehaviour
         maxTimer = 92f;
         timerRun = false;
 
-        pathFile = Application.dataPath + "/" + "regEntries"; //directory creation for data entries
-        if (!Directory.Exists(pathFile))
-        {
-            Directory.CreateDirectory(pathFile);
-        }
-
+        pathFile = Application.dataPath + "/" + "regEntries.txt"; //directory creation for data entries
         registerPage.SetActive(false);
     }
 
@@ -164,6 +159,7 @@ public class RegisterHandler : MonoBehaviour
         }
     }
 
+    //TO CHANGE - email validity with rest of inputs
     public bool registerCheck() //checking to see if all entries are filled and the check for terms and conditions is toggled on
     {
         for (int i = 0; i < entryFields.Count; i++)
@@ -177,6 +173,16 @@ public class RegisterHandler : MonoBehaviour
                     if (string.IsNullOrEmpty(entry.text))
                     {
                         entry.GetComponent<Image>().color = Color.red;
+                    } else
+                    {
+                        if (entry.name == "EmailInput")
+                        {
+                            string emailAdd = entry.text.ToString();
+                            if (emailAdd.Length < 5 || !emailAdd.Contains("@") || !emailAdd.Contains("."))
+                            {
+                                entry.GetComponent<Image>().color = Color.red;
+                            }
+                        }
                     }
                 }
 
@@ -186,25 +192,16 @@ public class RegisterHandler : MonoBehaviour
                 }
 
                 return false;
-            }
-        }
-
-        //check email validity
-        foreach (var entry in entryFields)
-        {
-            if (entry.name == "EmailInput")
+            } else
             {
-                string emailAdd = entry.text.ToString();
-                if (emailAdd.Length < 5 || !emailAdd.Contains("@") || !emailAdd.Contains("."))
+                if (entryFields[i].name == "EmailInput")
                 {
-                    entry.GetComponent<Image>().color = Color.red;
-
-                    if (!checkTnC.isOn)
+                    string emailAdd = entryFields[i].text.ToString();
+                    if (emailAdd.Length < 5 || !emailAdd.Contains("@") || !emailAdd.Contains("."))
                     {
-                        checkTnC.transform.GetChild(0).GetComponent<Image>().color = Color.red;
+                        entryFields[i].GetComponent<Image>().color = Color.red;
+                        return false;
                     }
-
-                    return false;
                 }
             }
         }
@@ -274,30 +271,40 @@ public class RegisterHandler : MonoBehaviour
         KeyboardHandler.singleton.numberToggle(mobileShift);
     }
 
+    //TO CHANGE: 'csv' format, each user a single line, variables seperated by comma
+    //All in one txt file
+
     private void saveInformation() //save information from register page
     {
         DateTime currDT = DateTime.Now;
-        string path = pathFile + "/" + entryFields[0].text + entryFields[1].text + "_" + currDT.Year + currDT.Month + currDT.Day + "_" + currDT.Hour + currDT.Minute + ".txt";
+        string path = pathFile;
         StreamWriter writer = new StreamWriter(path, true);
-        writer.WriteLine("Date: " + currDT.ToShortDateString() +
-            "\nTime: " + currDT.ToShortTimeString() +
-            "\nName: " + entryFields[0].text + " " + entryFields[1].text + 
-            "\nDesgination: " + entryFields[2].text + 
-            "\nCompany: " + entryFields[3].text + 
-            "\nEmail: " + entryFields[4].text + 
-            "\nMobile: " + entryFields[5].text +
-            "\nScore: " + QuizHandler.score);
+        writer.WriteLine(currDT.ToShortDateString() +
+            "," + currDT.ToShortTimeString() +
+            "," + entryFields[0].text + " " + entryFields[1].text +
+            "," + entryFields[2].text +
+            "," + entryFields[3].text +
+            "," + entryFields[4].text +
+            "," + entryFields[5].text +
+            "," + QuizHandler.score +
+            "," + PrizeInventory.singleton.prizeNo);
         writer.Close();
     }
 
     public void SkipRegister() //triggers upon time out on info page; save info just in case
     {
         DateTime currDT = DateTime.Now;
-        string path = pathFile + "/UnRegEntry_" + currDT.Year + currDT.Month + currDT.Day + "_" + currDT.Hour + currDT.Minute + ".txt";
+        string path = pathFile;
         StreamWriter writer = new StreamWriter(path, true);
-        writer.WriteLine("Date: " + currDT.ToShortDateString() +
-            "\nTime: " + currDT.ToShortTimeString() +
-            "\nScore: " + QuizHandler.score);
+        writer.WriteLine(currDT.ToShortDateString() +
+            "," + currDT.ToShortTimeString() +
+            "," + entryFields[0].text + " " + entryFields[1].text +
+            "," + entryFields[2].text +
+            "," + entryFields[3].text +
+            "," + entryFields[4].text +
+            "," + entryFields[5].text +
+            "," + QuizHandler.score +
+            "," + PrizeInventory.singleton.prizeNo);
         writer.Close();
         registerPage.GetComponent<Animator>().Play("MoveToEnd");
         LastPageHandler.singleton.showLast();
