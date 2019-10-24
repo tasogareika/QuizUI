@@ -1,4 +1,5 @@
 ﻿using TMPro;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,9 +10,10 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     private Animator thisAnim;
     public static KeyboardHandler singleton;
-    public bool isOnScreen, touchingKeys;
+    public bool isOnScreen, touchingKeys, middleCaret;
     public List<GameObject> keyboardKeys;
     public TMP_InputField currInput;
+    public int cursorPos;
 
     private void Awake()
     {
@@ -28,6 +30,7 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
         thisAnim = GetComponent<Animator>();
         isOnScreen = false;
         touchingKeys = false;
+        middleCaret = false;
         gameObject.SetActive(false);
     }
 
@@ -81,15 +84,32 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         if (currInput != null)
         {
+            string endString = currInput.text.Substring(cursorPos);
+            string frontString = currInput.text.Substring(0, cursorPos);
             if (currInput.name != "MobileInput")
             {
-                currInput.text += s;
+                if (middleCaret)
+                {
+                    currInput.text = frontString + s + endString;
+                    cursorPos++;
+                } else
+                {
+                    currInput.text += s;
+                }
             } else
             {
                 int i;
                 if (int.TryParse(s, out i))
                 {
-                    currInput.text += s;
+                    if (middleCaret)
+                    {
+                        currInput.text = frontString + s + endString;
+                        cursorPos++;
+                    }
+                    else
+                    {
+                        currInput.text += s;
+                    }
                 }
             }
         }
@@ -100,9 +120,17 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
         if (currInput != null)
         {
             string currText = currInput.text.ToString();
+            string endString = currText.Substring(cursorPos);
+            string frontString = currText.Substring(0, cursorPos);
+
             if (currText.Length > 1)
             {
-                currText = currText.Remove(currText.Length - 1);
+                if (cursorPos != 0)
+                {
+                    frontString = frontString.Remove(frontString.Length - 1);
+                    currText = frontString + endString;
+                    cursorPos--;
+                }
             } else
             {
                 currText = string.Empty;

@@ -16,7 +16,7 @@ public class LandingStartHandler : MonoBehaviour
         singleton = this;
         //set portrait res
         #if UNITY_STANDALONE
-        Screen.SetResolution(720, 1280, false);
+        Screen.SetResolution(720, 1280, true);
         //Screen.SetResolution(1080, 1920, false);
         #endif
     }

@@ -15,7 +15,7 @@ public class RegisterHandler : MonoBehaviour
     public Color inputSelectColor;
     private string pathFile;
     private float maxTimer, currTimer;
-    private bool timerRun, mobileShift;
+    public bool timerRun, mobileShift;
     private Vector2 lastPos;
 
     private void Awake()
@@ -94,6 +94,20 @@ public class RegisterHandler : MonoBehaviour
                     if (mobileShift)
                     {
                         numberToggle(mobileShift);
+                    }
+                }
+
+                if (obj != null)
+                {
+                    var input = obj.GetComponent<TMP_InputField>();
+                    if (input != null && input.text.Length != 0)
+                    {
+                        KeyboardHandler.singleton.middleCaret = true;
+                        KeyboardHandler.singleton.cursorPos = input.caretPosition;
+                    } else if (input != null && input.text.Length < 1)
+                    {
+                        KeyboardHandler.singleton.middleCaret = false;
+                        KeyboardHandler.singleton.cursorPos = 0;
                     }
                 }
             }
