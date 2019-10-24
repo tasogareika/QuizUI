@@ -15,9 +15,11 @@ public class MCQButtonHandler : MonoBehaviour
         if (correct)
         {
             GetComponent<Image>().sprite = correctImg;
+            BackendHandler.singleton.playCorrectAns();
         } else
         {
             GetComponent<Image>().sprite = wrongImg;
+            BackendHandler.singleton.playWrongAns();
         }
         QuizHandler.singleton.closeButtons();
         StartCoroutine(nextQuestion(0.5f));

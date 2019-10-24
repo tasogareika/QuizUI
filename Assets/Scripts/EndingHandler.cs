@@ -46,10 +46,12 @@ public class EndingHandler : MonoBehaviour
         if (complete)
         {
             //if user finishes quiz
+            BackendHandler.singleton.playQuizCompleteSound();
             header.GetComponent<Image>().sprite = wellDone;
         } else
         {
             //if user runs out of time
+            BackendHandler.singleton.playTimeUpSound();
             header.GetComponent<Image>().sprite = timesUp;
         }
 
@@ -64,6 +66,8 @@ public class EndingHandler : MonoBehaviour
     public void GoToRegister()
     {
         countdown = false;
+        BackendHandler.singleton.playMainButtonClick();
+        BackendHandler.singleton.playPageMove();
         EndingPage.GetComponent<Animator>().Play("MoveToReg");
         RegisterHandler.singleton.showRegister();
         AnimationHandler.singleton.switchRegister(EndingPage.GetComponent<Animator>());

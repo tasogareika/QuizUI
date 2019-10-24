@@ -25,6 +25,7 @@ public class LastPageHandler : MonoBehaviour
         maxTimer = 12;
         currTimer = maxTimer;
         lastPage.SetActive(true);
+        BackendHandler.singleton.playPageMove();
         PrizeInventory.singleton.getPrize(QuizHandler.score);
         lastPage.GetComponent<Animator>().Play("ShowLast");
         prizeDisplay.GetComponent<TextMeshProUGUI>().text = PrizeInventory.singleton.prizeNo.ToString();
@@ -40,6 +41,8 @@ public class LastPageHandler : MonoBehaviour
             if (currTimer <= 0)
             {
                 runTimer = false;
+                BackendHandler.singleton.playPageMove();
+                PrizeInventory.singleton.updateInventory(PrizeInventory.singleton.prizeNo);
                 lastPage.GetComponent<Animator>().Play("MoveToStart");
                 AnimationHandler.singleton.topBGVanish();
                 StartCoroutine(timeOut(1f));
@@ -49,7 +52,7 @@ public class LastPageHandler : MonoBehaviour
 
     public void returnToStart()
     {
-        PrizeInventory.singleton.updateInventory(PrizeInventory.singleton.prizeNo);
+        BackendHandler.singleton.playMainButtonClick();
         currTimer = 0.1f;
     }
 

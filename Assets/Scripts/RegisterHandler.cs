@@ -155,9 +155,13 @@ public class RegisterHandler : MonoBehaviour
         if (registerCheck())
         {
             saveInformation();
+            BackendHandler.singleton.playMainButtonClick();
             registerPage.GetComponent<Animator>().Play("MoveToEnd");
             LastPageHandler.singleton.showLast();
-        } 
+        } else
+        {
+            BackendHandler.singleton.playError();
+        }
     }
 
     public bool registerCheck() //checking to see if all entries are filled and the check for terms and conditions is toggled on
@@ -180,6 +184,7 @@ public class RegisterHandler : MonoBehaviour
                 {
                     checkTnC.transform.GetChild(0).GetComponent<Image>().color = Color.red;;
                 }
+
                 return false;
             }
         }

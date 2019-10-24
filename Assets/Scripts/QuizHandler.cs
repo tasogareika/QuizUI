@@ -56,6 +56,7 @@ public class QuizHandler : MonoBehaviour
         currQuestionNo.text = questionProg.ToString();
         quizPage.SetActive(true);
         quizPage.GetComponent<Animator>().Play("ShowQuiz");
+        BackendHandler.singleton.playQuizBGM();
         StartCoroutine(startTimer(1.1f));
     }
 
@@ -171,8 +172,17 @@ public class QuizHandler : MonoBehaviour
             currTimer -= Time.deltaTime;
             timerDisplay.text = currTimer.ToString("F0");
 
+            if (currTimer <= 5)
+            {
+                if (!BackendHandler.singleton.xtraPlayer.isPlaying)
+                {
+                    BackendHandler.singleton.playLast5Secs();
+                }
+            }
+
             if (currTimer <= 0)
             {
+                BackendHandler.singleton.stopXtraPlayer();
                 endQuiz(false);
             }
         }
@@ -180,6 +190,7 @@ public class QuizHandler : MonoBehaviour
 
     private void endQuiz(bool complete) //end of quiz
     {
+        BackendHandler.singleton.stopBGM();
         timerRun = false;
         quizPage.SetActive(false);
         EndingHandler.singleton.showEnd(complete);

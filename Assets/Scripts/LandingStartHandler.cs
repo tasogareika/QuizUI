@@ -43,6 +43,7 @@ public class LandingStartHandler : MonoBehaviour
 
     public void backToLanding()
     {
+        BackendHandler.singleton.playMainBGM();
         countdown.GetComponent<Animator>().Play("CountStart");
         landingPage.GetComponent<Animator>().Play("ReturnToStart");
         AnimationHandler.singleton.returnToStart(landingPage.GetComponent<Animator>());
@@ -59,6 +60,7 @@ public class LandingStartHandler : MonoBehaviour
     public void StartGame()
     {
         StopAllCoroutines();
+        BackendHandler.singleton.playMainButtonClick();
         logo.GetComponent<ObjectFloat>().enabled = false;
         secondCount = 3;
         landingPage.GetComponent<Animator>().Play("MoveToTut");
@@ -72,6 +74,7 @@ public class LandingStartHandler : MonoBehaviour
     {
         StopAllCoroutines();
         tutorialBG.SetActive(false);
+        BackendHandler.singleton.playCountdownBeep();
         countdown.GetComponent<Animator>().Play("Countdown");
         StartCoroutine(countLoop(1.6f));
     }
@@ -124,6 +127,7 @@ public class LandingStartHandler : MonoBehaviour
 
     private IEnumerator countLoop (float waitTime)
     {
+        BackendHandler.singleton.playCountdownBeep();
         yield return new WaitForSeconds(waitTime);
         toggleCount();
     }
