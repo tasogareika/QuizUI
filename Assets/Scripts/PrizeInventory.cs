@@ -35,7 +35,7 @@ public class PrizeInventory : MonoBehaviour
 
     private void formatPrizeList() //put each indv prize onto a list cell
     {
-        string[] prizes = lastData.Split('/');
+        string[] prizes = lastData.Split('\n');
         foreach (string s in prizes)
         {
             string[] eachPrize = s.Split('-');
@@ -48,50 +48,94 @@ public class PrizeInventory : MonoBehaviour
 
     public void getPrize(int score)
     {
+        prizeNo = 0;
         if (score == 20)
         {
-            prizeNo = 1;
+            checkStock(1);
         }
         else if (score <= 19 && score >= 15)
         {
-            prizeNo = 2;
+            checkStock(2);
         }
         else if (score <= 14 && score >= 10)
         {
-            prizeNo = 3;
+            checkStock(3);
         }
         else if (score <= 9 && score >= 5)
         {
-            prizeNo = 4;
+            checkStock(4);
         }
         else if (score <= 4)
         {
-            prizeNo = 5;
+            checkStock(5);
+        }
+    }
+
+    private void checkStock(int stockNo)
+    {
+        int prizeIndex = stockNo - 1;
+        int prizeLeft = int.Parse(prizeList[prizeIndex]);
+        if (prizeLeft >= 1)
+        {
+            prizeNo = stockNo;
+        } else
+        {
+            for (int i = prizeIndex; i < prizeList.Count; i++) //check for lower tier prizes first
+            {
+                int p = int.Parse(prizeList[i]);
+                if (p >= 1)
+                {
+                    prizeNo = i + 1;
+                    break;
+                }
+            }
+
+            if (prizeNo == 0)
+            {
+                for (int j = prizeIndex; j > -1; j--) //check higher tier prizes only if all lower ones are out of stock
+                {
+                    Debug.Log(j);
+                    int p = int.Parse(prizeList[j]);
+                    if (p >= 1)
+                    {
+                        prizeNo = j + 1;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (prizeNo == 0)
+        {
+            Debug.Log("no prizes left");
         }
     }
 
     public void updateInventory(int prizeClaimed)
     {
-        int prizeIndex = prizeClaimed - 1;
-        int prizesLeft = int.Parse(prizeList[prizeIndex]);
-        prizesLeft--;
-        prizeList[prizeIndex] = prizesLeft.ToString();
-
-        //delete previous file for rewriting
-        File.Delete(path);
-        StreamWriter writer = new StreamWriter(path, true);
-
-        for (int i = 0; i < prizeList.Count; i++)
+        if (prizeClaimed != 0)
         {
-            int n = i + 1;
-            writer.Write("\nPrize " + n + "-" + prizeList[i] + "/");
+            int prizeIndex = prizeClaimed - 1;
+            int prizesLeft = int.Parse(prizeList[prizeIndex]);
+            prizesLeft--;
+            prizeList[prizeIndex] = prizesLeft.ToString();
+
+            //delete previous file for rewriting
+            File.Delete(path);
+            StreamWriter writer = new StreamWriter(path, true);
+
+            for (int i = 0; i < prizeList.Count; i++)
+            {
+                int n = i + 1;
+                writer.Write("\nPrize " + n + "-" + prizeList[i]);
+            }
+
+            writer.Close();
+            prizeList.Clear();
+
+            //reimport for update
+            lastData = readInventory();
+            formatPrizeList();
         }
-
-        writer.Close();
-        prizeList.Clear();
-
-        //reimport for update
-        lastData = readInventory();
-        formatPrizeList();
     }
 }
