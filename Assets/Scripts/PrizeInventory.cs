@@ -6,9 +6,9 @@ using UnityEngine;
 public class PrizeInventory : MonoBehaviour
 {
     public static PrizeInventory singleton;
-    public TextAsset prizesTxt;
     public int prizeNo;
     private string path, lastData;
+    public List<Sprite> prizeImgs;
     private List<string> prizeList;
 
     private void Awake()

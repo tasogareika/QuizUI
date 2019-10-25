@@ -79,12 +79,10 @@ public class AnimationHandler : MonoBehaviour
                 break;
 
             case "RegisterHandler":
-                changeText("Register");
                 btn.onClick.AddListener(delegate { RegisterHandler.singleton.clickRegister(); });
                 break;
 
             case "LastPageHandler":
-                changeText("Get Reward");
                 btn.onClick.AddListener(delegate { LastPageHandler.singleton.returnToStart(); });
                 break;
         }
@@ -112,8 +110,13 @@ public class AnimationHandler : MonoBehaviour
             case "Tap here to start":
                 buttonText.GetComponent<Image>().sprite = buttonLines[0];
                 break;
+
+            default:
+                buttonText.GetComponent<Image>().color = Color.clear;
+                break;
         }
-        
+        buttonText.GetComponent<Image>().color = Color.white;
+        buttonText.GetComponent<Image>().SetNativeSize();
     }
 
     public void topBGRollDown()

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class QuizHandler : MonoBehaviour
 {
     public static QuizHandler singleton;
-    public static int score;
+    public static int score, questionCount;
     private IDictionary<int, string> choicesRef;
     private IDictionary<int, bool> answerRef;
     [SerializeField] private GameObject quizPage;
@@ -18,7 +18,7 @@ public class QuizHandler : MonoBehaviour
     [HideInInspector] public List<String> MCQChoices;
     public List<GameObject> MCQButtons;
     [HideInInspector] public List<GameObject> tempButtonList;
-    private int questionProg, questionNo, totalQns, realAns, questionCount;
+    private int questionProg, questionNo, totalQns, realAns;
     private float timerMax, currTimer;
     public bool timerRun;
 

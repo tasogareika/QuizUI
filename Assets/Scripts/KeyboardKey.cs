@@ -10,11 +10,11 @@ public class KeyboardKey : MonoBehaviour
     public TextMeshProUGUI textDisplay;
     private Button thisButton;
     public string keyData, altKeyData;
-    public bool isShift, isSpace, isBackSpace, shiftPressed;
+    public bool isShift, isSpace, isBackSpace, isClear, isAuto, shiftPressed;
 
     private void Start()
     {
-        if (!isShift && !isSpace && !isBackSpace)
+        if (!isShift && !isSpace && !isBackSpace & !isClear & !isAuto)
         {
             textDisplay = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         }
@@ -48,13 +48,19 @@ public class KeyboardKey : MonoBehaviour
             } else if (isSpace)
             {
                 KeyboardHandler.singleton.letterSpace();
+            } else if (isClear)
+            {
+                KeyboardHandler.singleton.clearInput();
+            } else if (isAuto)
+            {
+                KeyboardHandler.singleton.autoEmailFill();
             }
         }
     }
 
     private bool isSpecialKey()
     {
-        if (!isShift && !isSpace && !isBackSpace)
+        if (!isShift && !isSpace && !isBackSpace && !isClear && !isAuto)
         {
             return false;
         } else

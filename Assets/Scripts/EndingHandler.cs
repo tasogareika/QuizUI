@@ -6,7 +6,7 @@ public class EndingHandler : MonoBehaviour
 {
     public static EndingHandler singleton;
     public List<Sprite> scoreImgs;
-    public Sprite wellDone, timesUp;
+    public Sprite wellDone, great, perfect, doBetter, timesUp;
     [SerializeField] private GameObject EndingPage, scoreDisplay, header;
     private float returnTimer, maxTimer;
     private bool countdown;
@@ -47,13 +47,31 @@ public class EndingHandler : MonoBehaviour
         {
             //if user finishes quiz
             BackendHandler.singleton.playQuizCompleteSound();
-            header.GetComponent<Image>().sprite = wellDone;
+
+            if (QuizHandler.score == QuizHandler.questionCount) //max score
+            {
+                BackendHandler.singleton.playAudienceCheer();
+                header.GetComponent<Image>().sprite = perfect;
+            }
+            else if (QuizHandler.score <= 19 && QuizHandler.score >= 15)
+            {
+                header.GetComponent<Image>().sprite = wellDone;
+            } else if (QuizHandler.score <= 14 && QuizHandler.score >= 7)
+            {
+                header.GetComponent<Image>().sprite = great;
+            } else if (QuizHandler.score <= 6)
+            {
+                header.GetComponent<Image>().sprite = doBetter;
+            }
+
         } else
         {
             //if user runs out of time
             BackendHandler.singleton.playTimeUpSound();
             header.GetComponent<Image>().sprite = timesUp;
         }
+
+        header.GetComponent<Image>().SetNativeSize();
 
         //display score
         scoreDisplay.GetComponent<Image>().sprite = scoreImgs[QuizHandler.score];
@@ -68,6 +86,7 @@ public class EndingHandler : MonoBehaviour
         countdown = false;
         BackendHandler.singleton.playMainButtonClick();
         BackendHandler.singleton.playPageMove();
+        AnimationHandler.singleton.changeText("Register");
         EndingPage.GetComponent<Animator>().Play("MoveToReg");
         RegisterHandler.singleton.showRegister();
         PrizeInventory.singleton.getPrize(QuizHandler.score);

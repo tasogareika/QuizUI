@@ -10,6 +10,7 @@ public class RegisterHandler : MonoBehaviour
 {
     public static RegisterHandler singleton;
     [SerializeField] private GameObject registerPage, termsPage;
+    [SerializeField] private Image normalInputBG, highlightInputBG;
     public List<TMP_InputField> entryFields;
     public Toggle checkTnC;
     public Color inputSelectColor;
@@ -103,7 +104,7 @@ public class RegisterHandler : MonoBehaviour
                     {
                         KeyboardHandler.singleton.middleCaret = false;
                         KeyboardHandler.singleton.cursorPos = 0;
-                    }
+                    } 
                 }
             }
         }
@@ -158,8 +159,7 @@ public class RegisterHandler : MonoBehaviour
             BackendHandler.singleton.playError();
         }
     }
-
-    //TO CHANGE - email validity with rest of inputs
+    
     public bool registerCheck() //checking to see if all entries are filled and the check for terms and conditions is toggled on
     {
         for (int i = 0; i < entryFields.Count; i++)
@@ -237,6 +237,7 @@ public class RegisterHandler : MonoBehaviour
                 }
 
                 entry.GetComponent<Image>().color = inputSelectColor;
+
                 if (!KeyboardHandler.singleton.isOnScreen)
                 {
                     KeyboardHandler.singleton.showKeyboard();
@@ -270,10 +271,7 @@ public class RegisterHandler : MonoBehaviour
         }
         KeyboardHandler.singleton.numberToggle(mobileShift);
     }
-
-    //TO CHANGE: 'csv' format, each user a single line, variables seperated by comma
-    //All in one txt file
-
+    
     private void saveInformation() //save information from register page
     {
         DateTime currDT = DateTime.Now;
@@ -293,7 +291,7 @@ public class RegisterHandler : MonoBehaviour
 
     public void SkipRegister() //triggers upon time out on info page; save info just in case
     {
-        DateTime currDT = DateTime.Now;
+        /*DateTime currDT = DateTime.Now;
         string path = pathFile;
         StreamWriter writer = new StreamWriter(path, true);
         writer.WriteLine(currDT.ToShortDateString() +
@@ -305,7 +303,7 @@ public class RegisterHandler : MonoBehaviour
             "," + entryFields[5].text +
             "," + QuizHandler.score +
             "," + PrizeInventory.singleton.prizeNo);
-        writer.Close();
+        writer.Close();*/
         registerPage.GetComponent<Animator>().Play("MoveToEnd");
         LastPageHandler.singleton.showLast();
     }

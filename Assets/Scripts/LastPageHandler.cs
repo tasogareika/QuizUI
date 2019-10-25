@@ -1,6 +1,6 @@
-﻿using TMPro;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LastPageHandler : MonoBehaviour
 {
@@ -25,9 +25,11 @@ public class LastPageHandler : MonoBehaviour
         maxTimer = 12;
         currTimer = maxTimer;
         lastPage.SetActive(true);
+        RegisterHandler.singleton.timerRun = false;
         BackendHandler.singleton.playPageMove();
+        AnimationHandler.singleton.changeText("Get Reward");
+        prizeDisplay.GetComponent<Image>().sprite = PrizeInventory.singleton.prizeImgs[PrizeInventory.singleton.prizeNo];
         lastPage.GetComponent<Animator>().Play("ShowLast");
-        prizeDisplay.GetComponent<TextMeshProUGUI>().text = PrizeInventory.singleton.prizeNo.ToString();
         AnimationHandler.singleton.lastPage(lastPage.GetComponent<Animator>());
         runTimer = true;
     }
@@ -58,6 +60,7 @@ public class LastPageHandler : MonoBehaviour
     IEnumerator timeOut(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+        AnimationHandler.singleton.changeText(" ");
         LandingStartHandler.singleton.backToLanding();
     }
 }

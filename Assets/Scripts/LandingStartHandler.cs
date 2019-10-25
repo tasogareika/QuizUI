@@ -25,6 +25,7 @@ public class LandingStartHandler : MonoBehaviour
     {
         secondCount = 3;
         AnimationHandler.singleton.attachFunction("LandingStartHandler");
+        landingPage.GetComponent<Animator>().Play("TitlePulse");
         countdown.GetComponent<Animator>().Play("CountStart");
         logo.GetComponent<ObjectFloat>().enabled = true;
     }
@@ -47,6 +48,7 @@ public class LandingStartHandler : MonoBehaviour
         countdown.GetComponent<Animator>().Play("CountStart");
         landingPage.GetComponent<Animator>().Play("ReturnToStart");
         AnimationHandler.singleton.returnToStart(landingPage.GetComponent<Animator>());
+        StartCoroutine(startPulse(AnimationHandler.singleton.getAnimTime(landingPage.GetComponent<Animator>())));
         logo.GetComponent<ObjectFloat>().enabled = true;
     }
 
@@ -123,6 +125,12 @@ public class LandingStartHandler : MonoBehaviour
         tutorialBG.GetComponent<Animator>().Play("New State");
         tutorialBG.SetActive(false);
         backToLanding();
+    }
+
+    private IEnumerator startPulse (float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        landingPage.GetComponent<Animator>().Play("TitlePulse");
     }
 
     private IEnumerator countLoop (float waitTime)

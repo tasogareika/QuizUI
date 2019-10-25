@@ -9,11 +9,14 @@ using UnityEngine.EventSystems;
 public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private Animator thisAnim;
+    private string emailFront;
     public static KeyboardHandler singleton;
     public bool isOnScreen, touchingKeys, middleCaret;
     public List<GameObject> keyboardKeys;
+    public List<string> emailDomains;
     public TMP_InputField currInput;
     public int cursorPos;
+    private int emailNo;
 
     private void Awake()
     {
@@ -36,10 +39,11 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void shiftPressed(bool on)
     {
+        emailNo = 0;
         foreach (var k in keyboardKeys)
         {
             KeyboardKey key = k.GetComponent<KeyboardKey>();
-            if (!key.isBackSpace && !key.isShift && !key.isSpace)
+            if (!key.isBackSpace && !key.isShift && !key.isSpace && !key.isClear && !key.isAuto)
             {
                 if (on)
                 {
@@ -73,6 +77,7 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void showKeyboard()
     {
+        emailNo = -1;
         isOnScreen = true;
         StopCoroutine("toggleButton");
         gameObject.SetActive(true);
@@ -84,6 +89,7 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         if (currInput != null)
         {
+            emailNo = -1;
             string endString = currInput.text.Substring(cursorPos);
             string frontString = currInput.text.Substring(0, cursorPos);
             if (currInput.name != "MobileInput")
@@ -95,6 +101,7 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
                 } else
                 {
                     currInput.text += s;
+                    cursorPos = currInput.text.Length;
                 }
             } else
             {
@@ -109,6 +116,7 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
                     else
                     {
                         currInput.text += s;
+                        cursorPos = currInput.text.Length;
                     }
                 }
             }
@@ -119,6 +127,7 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         if (currInput != null)
         {
+            emailNo = -1;
             string currText = currInput.text.ToString();
             string endString = currText.Substring(cursorPos);
             string frontString = currText.Substring(0, cursorPos);
@@ -134,6 +143,8 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
             } else
             {
                 currText = string.Empty;
+                middleCaret = false;
+                cursorPos = 0;
             }
             currInput.text = currText;
         }
@@ -143,7 +154,60 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         if (currInput != null)
         {
-            currInput.text += " ";
+            emailNo = -1;
+            string endString = currInput.text.Substring(cursorPos);
+            string frontString = currInput.text.Substring(0, cursorPos);
+            if (middleCaret)
+            {
+                currInput.text = frontString + " " + endString;
+                cursorPos++;
+            }
+            else
+            {
+                currInput.text += " ";
+                cursorPos = currInput.text.Length;
+            }
+        }
+    }
+
+    public void clearInput()
+    {
+        if (currInput != null)
+        {
+            emailNo = -1;
+            currInput.text = null;
+            cursorPos = 0;
+        }
+    }
+
+    public void autoEmailFill()
+    {
+        if (currInput != null)
+        {
+            if (currInput.name == "EmailInput")
+            {
+                if (emailNo < 0)
+                {
+                    if (currInput.text.Contains("@"))
+                    {
+                        int i = currInput.text.IndexOf('@');
+                        emailFront = currInput.text.Substring(0, i);
+                    }
+                    else
+                    {
+                        emailFront = currInput.text;
+                    }
+                }
+
+                emailNo++;
+                if (emailNo > emailDomains.Count - 1)
+                {
+                    emailNo = 0;
+                }
+
+                currInput.text = emailFront + emailDomains[emailNo];
+                cursorPos = currInput.text.Length;
+            }
         }
     }
 
@@ -154,7 +218,7 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
             foreach (var k in keyboardKeys)
             {
                 var key = k.GetComponent<KeyboardKey>();
-                if (!key.isBackSpace && !key.isShift && !key.isSpace)
+                if (!key.isBackSpace && !key.isShift && !key.isSpace && !key.isClear && !key.isAuto)
                 {
                     int i;
                     if (!int.TryParse(key.keyData, out i))
