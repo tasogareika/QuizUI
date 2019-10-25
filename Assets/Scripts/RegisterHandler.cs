@@ -306,6 +306,10 @@ public class RegisterHandler : MonoBehaviour
         writer.Close();*/
         registerPage.GetComponent<Animator>().Play("MoveToEnd");
         PrizeInventory.singleton.prizeNo = 0;
+        if (KeyboardHandler.singleton.isOnScreen)
+        {
+            KeyboardHandler.singleton.hideKeyboard();
+        }
         LastPageHandler.singleton.showLast();
     }
 }
