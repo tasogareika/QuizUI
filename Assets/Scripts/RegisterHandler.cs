@@ -305,6 +305,7 @@ public class RegisterHandler : MonoBehaviour
             "," + PrizeInventory.singleton.prizeNo);
         writer.Close();*/
         registerPage.GetComponent<Animator>().Play("MoveToEnd");
+        PrizeInventory.singleton.prizeNo = 0;
         LastPageHandler.singleton.showLast();
     }
 }

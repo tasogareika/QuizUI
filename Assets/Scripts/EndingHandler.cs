@@ -32,6 +32,7 @@ public class EndingHandler : MonoBehaviour
             {
                 countdown = false;
                 EndingPage.SetActive(false);
+                AnimationHandler.singleton.topBGVanish();
                 LandingStartHandler.singleton.backToLanding();
             }
         }
@@ -73,8 +74,9 @@ public class EndingHandler : MonoBehaviour
 
         header.GetComponent<Image>().SetNativeSize();
 
-        //display score
+        //display score, get inventory stock based on score
         scoreDisplay.GetComponent<Image>().sprite = scoreImgs[QuizHandler.score];
+        PrizeInventory.singleton.getPrize(QuizHandler.score);
         EndingPage.GetComponent<Animator>().Play("EndingRollDown");
         AnimationHandler.singleton.topBGRollDown();
         AnimationHandler.singleton.logoReturn();
@@ -89,7 +91,6 @@ public class EndingHandler : MonoBehaviour
         AnimationHandler.singleton.changeText("Register");
         EndingPage.GetComponent<Animator>().Play("MoveToReg");
         RegisterHandler.singleton.showRegister();
-        PrizeInventory.singleton.getPrize(QuizHandler.score);
         AnimationHandler.singleton.switchRegister(EndingPage.GetComponent<Animator>());
     }
 }

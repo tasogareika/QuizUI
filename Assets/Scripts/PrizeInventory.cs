@@ -94,7 +94,6 @@ public class PrizeInventory : MonoBehaviour
             {
                 for (int j = prizeIndex; j > -1; j--) //check higher tier prizes only if all lower ones are out of stock
                 {
-                    Debug.Log(j);
                     int p = int.Parse(prizeList[j]);
                     if (p >= 1)
                     {

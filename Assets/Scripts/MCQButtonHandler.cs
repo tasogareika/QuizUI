@@ -23,12 +23,12 @@ public class MCQButtonHandler : MonoBehaviour
             BackendHandler.singleton.playWrongAns();
         }
         QuizHandler.singleton.closeButtons();
-        StartCoroutine(nextQuestion(0.5f));
+        StartCoroutine(nextQuestion(3f));
     }
 
     public void resetImage()
     {
-        StartCoroutine(imageBack(0.5f));
+        StartCoroutine(imageBack(3f));
     }
 
     private IEnumerator imageBack(float waitTime)

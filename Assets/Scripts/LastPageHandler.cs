@@ -28,7 +28,14 @@ public class LastPageHandler : MonoBehaviour
         RegisterHandler.singleton.timerRun = false;
         BackendHandler.singleton.playPageMove();
         AnimationHandler.singleton.changeText("Get Reward");
-        prizeDisplay.GetComponent<Image>().sprite = PrizeInventory.singleton.prizeImgs[PrizeInventory.singleton.prizeNo];
+        if (PrizeInventory.singleton.prizeNo != 0)
+        {
+            prizeDisplay.GetComponent<Image>().sprite = PrizeInventory.singleton.prizeImgs[PrizeInventory.singleton.prizeNo];
+            prizeDisplay.GetComponent<Image>().color = Color.white;
+        } else
+        {
+            prizeDisplay.GetComponent<Image>().color = Color.clear;
+        }
         lastPage.GetComponent<Animator>().Play("ShowLast");
         AnimationHandler.singleton.lastPage(lastPage.GetComponent<Animator>());
         runTimer = true;
