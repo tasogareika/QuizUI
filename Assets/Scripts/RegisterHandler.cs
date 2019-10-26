@@ -264,10 +264,12 @@ public class RegisterHandler : MonoBehaviour
         {
             mobileShift = true;
             registerPage.GetComponent<Animator>().Play("RegShiftUp");
+            AnimationHandler.singleton.logoShiftUp();
         } else
         {
             mobileShift = false;
             registerPage.GetComponent<Animator>().Play("RegShiftDown");
+            AnimationHandler.singleton.logoShiftDown();
         }
         KeyboardHandler.singleton.numberToggle(mobileShift);
     }

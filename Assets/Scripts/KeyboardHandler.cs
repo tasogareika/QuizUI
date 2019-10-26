@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private Animator thisAnim;
-    private string emailFront;
+    private string emailFront, endString, frontString;
     public static KeyboardHandler singleton;
     public bool isOnScreen, touchingKeys, middleCaret;
     public List<GameObject> keyboardKeys;
@@ -90,8 +90,12 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
         if (currInput != null)
         {
             emailNo = -1;
-            string endString = currInput.text.Substring(cursorPos);
-            string frontString = currInput.text.Substring(0, cursorPos);
+            if (currInput.text.Length != 0)
+            {
+                endString = currInput.text.Substring(cursorPos);
+                frontString = currInput.text.Substring(0, cursorPos);
+            }
+
             if (currInput.name != "MobileInput")
             {
                 if (middleCaret)
@@ -129,8 +133,8 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
         {
             emailNo = -1;
             string currText = currInput.text.ToString();
-            string endString = currText.Substring(cursorPos);
-            string frontString = currText.Substring(0, cursorPos);
+            endString = currText.Substring(cursorPos);
+            frontString = currText.Substring(0, cursorPos);
 
             if (currText.Length > 1)
             {
@@ -155,8 +159,8 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
         if (currInput != null)
         {
             emailNo = -1;
-            string endString = currInput.text.Substring(cursorPos);
-            string frontString = currInput.text.Substring(0, cursorPos);
+            endString = currInput.text.Substring(cursorPos);
+            frontString = currInput.text.Substring(0, cursorPos);
             if (middleCaret)
             {
                 currInput.text = frontString + " " + endString;

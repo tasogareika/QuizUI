@@ -139,6 +139,16 @@ public class AnimationHandler : MonoBehaviour
         logo.GetComponent<Animator>().Play("LogoReturn");
     }
 
+    public void logoShiftUp()
+    {
+        logo.GetComponent<Animator>().Play("LogoShiftUp");
+    }
+
+    public void logoShiftDown()
+    {
+        logo.GetComponent<Animator>().Play("LogoShiftDown");
+    }
+
     public void returnToStart(Animator anim)
     {
         disableButton();

@@ -2,7 +2,7 @@
   
   <question1>
     <qns>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</qns>
-    <choices>lorem|ipsum|dummy|text</choices>
+    <choices>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.|The memory we used to share is no longer coherent.|I currently have 4 windows open up… and I don’t know why.|Joe made the sugar cookies; Susan decorated them.</choices>
     <answer>3</answer>
 	</question1>
 
@@ -13,13 +13,13 @@
   </question2>
 
   <question3>
-    <qns>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</qns>
+    <qns>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here',</qns>
     <choices>yes|no|maybe|perhaps</choices>
     <answer>2</answer>
   </question3>
 
   <question4>
-    <qns>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. </qns>
+    <qns>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,</qns>
     <choices>1|2|3|4</choices>
     <answer>1</answer>
   </question4>
@@ -31,7 +31,7 @@
   </question5>
 
   <question6>
-    <qns>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</qns>
+    <qns>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</qns>
     <choices>eye|nose|mouth|throat</choices>
     <answer>2</answer>
   </question6>
@@ -73,7 +73,7 @@
   </question12>
 
   <question13>
-    <qns>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance</qns>
+    <qns>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.</qns>
     <choices>lorem|ipsum|dummy|text</choices>
     <answer>3</answer>
   </question13>
@@ -92,37 +92,37 @@
 
   <question16>
     <qns>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</qns>
-    <choices>lorem|ipsum|dummy|text</choices>
+    <choices>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.|The memory we used to share is no longer coherent.|I currently have 4 windows open up… and I don’t know why.|Joe made the sugar cookies; Susan decorated them.</choices>
     <answer>3</answer>
   </question16>
 
   <question17>
-    <qns>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</qns>
+    <qns>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software</qns>
     <choices>lorem|ipsum|dummy|text</choices>
     <answer>4</answer>
   </question17>
 
   <question18>
-    <qns>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</qns>
-    <choices>lorem|ipsum|dummy|text</choices>
+    <qns>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis</qns>
+    <choices>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.|The memory we used to share is no longer coherent.|I currently have 4 windows open up… and I don’t know why.|Joe made the sugar cookies; Susan decorated them.</choices>
     <answer>1</answer>
   </question18>
 
   <question19>
-    <qns>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.</qns>
-    <choices>lorem|ipsum|dummy|text</choices>
+    <qns>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system,</qns>
+    <choices>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.|The memory we used to share is no longer coherent.|I currently have 4 windows open up… and I don’t know why.|Joe made the sugar cookies; Susan decorated them.</choices>
     <answer>2</answer>
   </question19>
 
   <question20>
-    <qns>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,</qns>
+    <qns>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias</qns>
     <choices>lorem|ipsum|dummy|text</choices>
     <answer>1</answer>
   </question20>
 
   <question21>
-    <qns>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided.</qns>
-    <choices>lorem|ipsum|dummy|text</choices>
+    <qns>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best,</qns>
+    <choices>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.|The memory we used to share is no longer coherent.|I currently have 4 windows open up… and I don’t know why.|Joe made the sugar cookies; Susan decorated them.</choices>
     <answer>3</answer>
   </question21>
 
