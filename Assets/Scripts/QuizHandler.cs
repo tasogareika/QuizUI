@@ -177,6 +177,11 @@ public class QuizHandler : MonoBehaviour
         }
     }
 
+    public void skipTime() //for testing purposes
+    {
+        currTimer = 3f;
+    }
+
     private void Update()
     {
         if (timerRun)

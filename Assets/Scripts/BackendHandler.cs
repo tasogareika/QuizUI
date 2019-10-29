@@ -33,6 +33,14 @@ public class BackendHandler : MonoBehaviour
                 RegisterHandler.singleton.SkipRegister();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            if (QuizHandler.singleton.timerRun)
+            {
+                QuizHandler.singleton.skipTime();
+            }
+        }
     }
 
     public void playMainBGM ()
