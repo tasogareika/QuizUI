@@ -35,7 +35,7 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
         isOnScreen = false;
         touchingKeys = false;
         middleCaret = false;
-        numpad.GetComponent<RectTransform>().anchoredPosition = new Vector2(Screen.width * 0.3f, -10f);
+        numpad.GetComponent<RectTransform>().anchoredPosition = new Vector2(Screen.width * 0.25f, -10f);
         numpad.SetActive(false);
         gameObject.SetActive(false);
     }
@@ -183,6 +183,7 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
         {
             emailNo = -1;
             currInput.text = null;
+            middleCaret = false;
             cursorPos = 0;
         }
     }
