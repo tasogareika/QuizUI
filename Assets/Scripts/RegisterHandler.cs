@@ -188,7 +188,7 @@ public class RegisterHandler : MonoBehaviour
 
                 if (!checkTnC.isOn)
                 {
-                    checkTnC.transform.GetChild(0).GetComponent<Image>().color = Color.red;;
+                    checkTnC.transform.GetChild(0).GetComponent<Image>().color = Color.red;
                 }
 
                 return false;
@@ -308,6 +308,12 @@ public class RegisterHandler : MonoBehaviour
         writer.Close();*/
         registerPage.GetComponent<Animator>().Play("MoveToEnd");
         PrizeInventory.singleton.prizeNo = 0;
+        foreach (var s in entryFields)
+        {
+            s.GetComponent<Image>().color = Color.white;
+        }
+        checkTnC.transform.GetChild(0).GetComponent<Image>().color = Color.white;
+
         if (KeyboardHandler.singleton.isOnScreen)
         {
             KeyboardHandler.singleton.hideKeyboard();

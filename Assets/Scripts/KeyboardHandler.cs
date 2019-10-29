@@ -9,13 +9,14 @@ using UnityEngine.EventSystems;
 public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private Animator thisAnim;
+    [SerializeField] private GameObject qwertyKeyboard, numpad;
     private string emailFront, endString, frontString;
     public static KeyboardHandler singleton;
     public bool isOnScreen, touchingKeys, middleCaret;
-    public List<GameObject> keyboardKeys;
+    [HideInInspector] public List<GameObject> keyboardKeys;
     public List<string> emailDomains;
-    public TMP_InputField currInput;
-    public int cursorPos;
+    [HideInInspector] public TMP_InputField currInput;
+    [HideInInspector] public int cursorPos;
     private int emailNo;
 
     private void Awake()
@@ -34,6 +35,8 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
         isOnScreen = false;
         touchingKeys = false;
         middleCaret = false;
+        numpad.GetComponent<RectTransform>().anchoredPosition = new Vector2(Screen.width * 0.35f, -10f);
+        numpad.SetActive(false);
         gameObject.SetActive(false);
     }
 
@@ -229,6 +232,8 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
                     {
                         k.GetComponent<Button>().interactable = false;
                     }
+                    numpad.SetActive(true);
+                    qwertyKeyboard.SetActive(false);
                 }
             }
         }
@@ -238,6 +243,8 @@ public class KeyboardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExit
             {
                 k.GetComponent<Button>().interactable = true;
             }
+            numpad.SetActive(false);
+            qwertyKeyboard.SetActive(true);
         }
     }
 
