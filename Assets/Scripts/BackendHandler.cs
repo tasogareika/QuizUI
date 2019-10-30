@@ -7,6 +7,8 @@ public class BackendHandler : MonoBehaviour
     private AudioSource audioPlayer;
     public AudioSource BGplayer, xtraPlayer;
     public AudioClip mainBGM, quizBGM, mainButtonClick, countdownBeep, correctSound, wrongSound, last5secs, timeUpSound, quizCompleteSFX, audienceCheerSFX, pageshiftSFX, errorSFX;
+    private int clickNo;
+    private float clickTime, clickDelay;
 
     private void Awake()
     {
@@ -15,6 +17,14 @@ public class BackendHandler : MonoBehaviour
 
     private void Start()
     {
+        //set portrait res
+        #if UNITY_STANDALONE
+        //Screen.SetResolution(720, 1280, true);
+        Screen.SetResolution(1080, 1920, true);
+        #endif
+
+        clickNo = 0;
+        clickDelay = 0.5f;
         audioPlayer = GetComponent<AudioSource>();
         playMainBGM();
     }
@@ -40,6 +50,27 @@ public class BackendHandler : MonoBehaviour
             {
                 QuizHandler.singleton.skipTime();
             }
+        }
+    }
+
+    //ref: https://forum.unity.com/threads/detect-double-click-on-something-what-is-the-best-way.476759/
+    public void doubleClick()
+    {
+        clickNo++;
+        if (clickNo == 1)
+        {
+            clickTime = Time.time;
+        }
+
+        if (clickNo > 1 && Time.time - clickTime < clickDelay)
+        {
+            clickNo = 0;
+            clickTime = 0;
+            SceneManager.LoadScene(0);
+        }
+        else if (clickNo > 2 || Time.time - clickTime > 1)
+        {
+            clickNo = 0;
         }
     }
 

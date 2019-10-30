@@ -71,6 +71,7 @@ public class AnimationHandler : MonoBehaviour
         switch (pageType) {
             case "LandingStartHandler":
                 changeText("Tap here to start");
+                btn.GetComponent<Animator>().enabled = false;
                 btn.onClick.AddListener(delegate { LandingStartHandler.singleton.StartGame(); });
                 break;
 

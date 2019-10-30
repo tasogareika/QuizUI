@@ -72,8 +72,6 @@ public class EndingHandler : MonoBehaviour
             header.GetComponent<Image>().sprite = timesUp;
         }
 
-        header.GetComponent<Image>().SetNativeSize();
-
         //display score, get inventory stock based on score
         scoreDisplay.GetComponent<Image>().sprite = scoreImgs[QuizHandler.score];
         PrizeInventory.singleton.getPrize(QuizHandler.score);

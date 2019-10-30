@@ -14,11 +14,6 @@ public class LandingStartHandler : MonoBehaviour
     private void Awake()
     {
         singleton = this;
-        //set portrait res
-        #if UNITY_STANDALONE
-        Screen.SetResolution(720, 1280, true);
-        //Screen.SetResolution(1080, 1920, false);
-        #endif
     }
 
     private void Start()
@@ -28,6 +23,7 @@ public class LandingStartHandler : MonoBehaviour
         landingPage.GetComponent<Animator>().Play("TitlePulse");
         countdown.GetComponent<Animator>().Play("CountStart");
         logo.GetComponent<ObjectFloat>().enabled = true;
+        logo.GetComponent<Animator>().enabled = false;
     }
 
     //orginally had interaction of clicking/tapping screen to show start button, but decperated as it was unneeded
@@ -64,6 +60,7 @@ public class LandingStartHandler : MonoBehaviour
         StopAllCoroutines();
         BackendHandler.singleton.playMainButtonClick();
         logo.GetComponent<ObjectFloat>().enabled = false;
+        logo.GetComponent<Animator>().enabled = true;
         secondCount = 3;
         landingPage.GetComponent<Animator>().Play("MoveToTut");
         countdownImg.GetComponent<Image>().sprite = countDownNos[secondCount];

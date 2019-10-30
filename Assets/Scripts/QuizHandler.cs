@@ -14,7 +14,7 @@ public class QuizHandler : MonoBehaviour
     [SerializeField] private GameObject quizPage;
     [SerializeField] private Slider numberSlider;
     [SerializeField] private TextMeshProUGUI currQuestionNo, timerDisplay, questionDisplay;
-    [HideInInspector] public List<int> questionPool;
+    public List<int> questionPool;
     [HideInInspector] public List<String> MCQChoices;
     public List<GameObject> MCQButtons;
     [HideInInspector] public List<GameObject> tempButtonList;
@@ -82,7 +82,8 @@ public class QuizHandler : MonoBehaviour
             int index = ran.Next(0, questionPool.Count);
             questionNo = questionPool[index];
             questionPool.RemoveAt(index);
-        } else if (questionPool.Count == 1)
+        }
+        else if (questionPool.Count == 1)
         {
             questionNo = questionPool[0];
             questionPool.Clear();
