@@ -9,6 +9,7 @@ public class PrizeInventory : MonoBehaviour
     public int prizeNo;
     private string path, lastData;
     public List<Sprite> prizeImgs;
+    public List<string> prizeType;
     private List<string> prizeList;
 
     private void Awake()
@@ -53,21 +54,17 @@ public class PrizeInventory : MonoBehaviour
         {
             checkStock(1);
         }
-        else if (score <= 19 && score >= 15)
+        else if (score <= 19 && score >= 13)
         {
             checkStock(2);
         }
-        else if (score <= 14 && score >= 10)
+        else if (score <= 12 && score >= 6)
         {
             checkStock(3);
         }
-        else if (score <= 9 && score >= 5)
+        else if (score <= 5)
         {
             checkStock(4);
-        }
-        else if (score <= 4)
-        {
-            checkStock(5);
         }
     }
 
@@ -80,7 +77,8 @@ public class PrizeInventory : MonoBehaviour
             prizeNo = stockNo;
         } else
         {
-            for (int i = prizeIndex; i < prizeList.Count; i++) //check for lower tier prizes first
+            prizeNo = 0;
+            /*for (int i = prizeIndex; i < prizeList.Count; i++) //check for lower tier prizes first
             {
                 int p = int.Parse(prizeList[i]);
                 if (p >= 1)
@@ -101,7 +99,7 @@ public class PrizeInventory : MonoBehaviour
                         break;
                     }
                 }
-            }
+            }*/
         }
 
         if (prizeNo == 0)
@@ -126,7 +124,7 @@ public class PrizeInventory : MonoBehaviour
             for (int i = 0; i < prizeList.Count; i++)
             {
                 int n = i + 1;
-                writer.Write("\nPrize " + n + "-" + prizeList[i]);
+                writer.Write("\n" + prizeType[n] + "-" + prizeList[i]);
             }
 
             writer.Close();

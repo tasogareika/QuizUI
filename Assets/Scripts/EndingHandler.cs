@@ -54,13 +54,13 @@ public class EndingHandler : MonoBehaviour
                 BackendHandler.singleton.playAudienceCheer();
                 header.GetComponent<Image>().sprite = perfect;
             }
-            else if (QuizHandler.score <= 19 && QuizHandler.score >= 15)
+            else if (QuizHandler.score <= 19 && QuizHandler.score >= 13)
             {
                 header.GetComponent<Image>().sprite = wellDone;
-            } else if (QuizHandler.score <= 14 && QuizHandler.score >= 7)
+            } else if (QuizHandler.score <= 12 && QuizHandler.score >= 6)
             {
                 header.GetComponent<Image>().sprite = great;
-            } else if (QuizHandler.score <= 6)
+            } else if (QuizHandler.score <= 5)
             {
                 header.GetComponent<Image>().sprite = doBetter;
             }

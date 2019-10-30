@@ -27,13 +27,14 @@ public class LastPageHandler : MonoBehaviour
         lastPage.SetActive(true);
         RegisterHandler.singleton.timerRun = false;
         BackendHandler.singleton.playPageMove();
-        AnimationHandler.singleton.changeText("Get Reward");
         if (PrizeInventory.singleton.prizeNo != 0)
         {
+            AnimationHandler.singleton.changeText("Get Reward");
             prizeDisplay.GetComponent<Image>().sprite = PrizeInventory.singleton.prizeImgs[PrizeInventory.singleton.prizeNo];
             prizeDisplay.GetComponent<Image>().color = Color.white;
         } else
         {
+            AnimationHandler.singleton.changeText("Tap to continue");
             prizeDisplay.GetComponent<Image>().color = Color.clear;
         }
         lastPage.GetComponent<Animator>().Play("ShowLast");
