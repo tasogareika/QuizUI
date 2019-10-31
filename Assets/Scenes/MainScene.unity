@@ -711,7 +711,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: def91da34fda71345850f81b2f01c3f9, type: 3}
   - {fileID: 21300000, guid: 48f45605aa2c01a4eb223902be2f3edc, type: 3}
   prizeType:
-  - 
+  - Nothing
   - Wireless Charger
   - Wireless Mouse
   - Radar pen set

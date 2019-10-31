@@ -44,7 +44,7 @@ public class QuizHandler : MonoBehaviour
         score = 0;
         questionProg = 0;
         questionPool.Clear();
-        totalQns = LoadXMLFile.singleton.getNodeNumber(); //get all questions from XML file
+        totalQns = LoadXMLFile.singleton.getNodeNumber() + 1; //get all questions from XML file
         for (int i = 1; i < totalQns; i++)
         {
             questionPool.Add(i);
@@ -133,7 +133,6 @@ public class QuizHandler : MonoBehaviour
             if (buttonHandler.correct)
             {
                 Debug.Log("answer is " + buttonHandler.buttonText.text + ": " + MCQButtons[b].name);
-                
             } 
         }
 
@@ -200,7 +199,6 @@ public class QuizHandler : MonoBehaviour
 
             if (currTimer <= 0)
             {
-                BackendHandler.singleton.stopXtraPlayer();
                 endQuiz(false);
             }
         }
@@ -209,6 +207,7 @@ public class QuizHandler : MonoBehaviour
     private void endQuiz(bool complete) //end of quiz
     {
         BackendHandler.singleton.stopBGM();
+        BackendHandler.singleton.stopXtraPlayer();
         timerRun = false;
         quizPage.SetActive(false);
         EndingHandler.singleton.showEnd(complete);

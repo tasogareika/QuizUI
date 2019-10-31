@@ -119,11 +119,4 @@
     <choices>Facial recognition|Liveness recognition|Object recognition|Document verification and authentication</choices>
     <answer>3</answer>
   </question20>
-
-  <question21>
-    <qns>Which of the following is not a feature of OneConnect eKYC?</qns>
-    <choices>Facial recognition|Liveness recognition|Object recognition|Document verification and authentication</choices>
-    <answer>3</answer>
-  </question21>
-
 </document>

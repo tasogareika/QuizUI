@@ -30,6 +30,21 @@ public class RegisterHandler : MonoBehaviour
         timerRun = false;
 
         pathFile = Application.dataPath + "/" + "regEntries.txt"; //directory creation for data entries
+        if (!File.Exists(pathFile))
+        {
+            StreamWriter writer = new StreamWriter(pathFile, true);
+            writer.WriteLine("Date" +
+                "," + "Time" +
+                "," + "Name" +
+                "," + "Desgination" +
+                "," + "Company" +
+                "," + "Email Address" +
+                "," + "Mobile No." +
+                "," + "Score" +
+                "," + "Prize Given");
+            writer.Close();
+        } 
+
         registerPage.SetActive(false);
     }
 
@@ -178,7 +193,15 @@ public class RegisterHandler : MonoBehaviour
                         if (entry.name == "EmailInput")
                         {
                             string emailAdd = entry.text.ToString();
-                            if (emailAdd.Length < 5 || !emailAdd.Contains("@") || !emailAdd.Contains("."))
+                            if (emailAdd.Length < 5 || !emailAdd.Contains("@") || !emailAdd.Contains(".") || checkDuplicates())
+                            {
+                                entry.GetComponent<Image>().color = Color.red;
+                            }
+                        }
+
+                        if (entry.name == "MobileInput")
+                        {
+                            if (entry.text.Length < 8)
                             {
                                 entry.GetComponent<Image>().color = Color.red;
                             }
@@ -197,7 +220,16 @@ public class RegisterHandler : MonoBehaviour
                 if (entryFields[i].name == "EmailInput")
                 {
                     string emailAdd = entryFields[i].text.ToString();
-                    if (emailAdd.Length < 5 || !emailAdd.Contains("@") || !emailAdd.Contains("."))
+                    if (emailAdd.Length < 5 || !emailAdd.Contains("@") || !emailAdd.Contains(".") || checkDuplicates())
+                    {
+                        entryFields[i].GetComponent<Image>().color = Color.red;
+                        return false;
+                    }
+                }
+
+                if (entryFields[i].name == "MobileInput")
+                {
+                    if (entryFields[i].text.Length < 8)
                     {
                         entryFields[i].GetComponent<Image>().color = Color.red;
                         return false;
@@ -274,10 +306,29 @@ public class RegisterHandler : MonoBehaviour
         KeyboardHandler.singleton.numberToggle(mobileShift);
     }
     
+    private bool checkDuplicates() //prevents same email addresses
+    {
+        string[] regLines = File.ReadAllLines(pathFile);
+        foreach (var l in regLines)
+        {
+            string[] regData = l.Split(',');
+            foreach (var s in regData)
+            {
+                if (entryFields[4].text == s)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     private void saveInformation() //save information from register page
     {
         DateTime currDT = DateTime.Now;
         string path = pathFile;
+        
         StreamWriter writer = new StreamWriter(path, true);
         writer.WriteLine(currDT.ToShortDateString() +
             "," + currDT.ToShortTimeString() +
@@ -287,7 +338,7 @@ public class RegisterHandler : MonoBehaviour
             "," + entryFields[4].text +
             "," + entryFields[5].text +
             "," + QuizHandler.score +
-            "," + PrizeInventory.singleton.prizeNo);
+            "," + PrizeInventory.singleton.prizeType[PrizeInventory.singleton.prizeNo]);
         writer.Close();
     }
 
