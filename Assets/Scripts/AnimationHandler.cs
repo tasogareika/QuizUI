@@ -76,6 +76,8 @@ public class AnimationHandler : MonoBehaviour
                 break;
 
             case "EndingHandler":
+                btn.GetComponent<Animator>().enabled = false;
+                btn.GetComponent<ObjectFloat>().enabled = true;
                 btn.onClick.AddListener(delegate { EndingHandler.singleton.GoToRegister(); });
                 break;
 

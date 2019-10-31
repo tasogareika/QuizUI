@@ -255,6 +255,7 @@ public class RegisterHandler : MonoBehaviour
 
     public void selectInput()
     {
+        checkTnC.transform.GetChild(0).GetComponent<Image>().color = Color.white;
         GameObject obj = EventSystem.current.currentSelectedGameObject;
         
         //obj.GetComponent<Image>().color = Color.white;
