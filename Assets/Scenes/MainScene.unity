@@ -6299,7 +6299,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 426.5, y: 0}
-  m_SizeDelta: {x: 853, y: 5753.78}
+  m_SizeDelta: {x: 853, y: 9567.57}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1060023615
 MonoBehaviour:
@@ -6321,85 +6321,142 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mattis
-    vitae sapien cursus molestie. Duis pretium gravida sem. Pellentesque maximus vitae
-    nisi id pulvinar. Aenean efficitur neque quis imperdiet semper. Duis non mi at
-    elit ultrices viverra eu at mi. Etiam semper et massa at vestibulum. Donec bibendum
-    est non purus venenatis tincidunt. Curabitur ultrices cursus augue non tincidunt.
-    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-    mus. Maecenas eros dolor, fringilla sed condimentum sit amet, suscipit a magna.
-    Nullam non felis at nulla mattis accumsan vitae id nunc.\r\n\r\nSed et risus leo.
-    Integer mollis scelerisque tellus non aliquam. Donec ultrices viverra condimentum.
-    Cras in aliquam risus. Integer iaculis massa ac odio commodo, vitae efficitur
-    ligula imperdiet. Donec pharetra sollicitudin elit sed porttitor. Nunc elementum
-    mauris a mauris fermentum, dapibus imperdiet purus ultrices. Morbi euismod est
-    et augue interdum, quis malesuada velit condimentum. Orci varius natoque penatibus
-    et magnis dis parturient montes, nascetur ridiculus mus. Nunc venenatis, sapien
-    in feugiat efficitur, purus massa tincidunt nisi, non molestie massa lectus vitae
-    purus. Aliquam vel metus viverra ex interdum commodo eget ut nunc. Mauris dapibus
-    mauris mauris, in luctus dui placerat ut.\r\n\r\nInteger sagittis tincidunt arcu
-    a bibendum. Vivamus dui tortor, dictum a mi sed, aliquet dictum elit. Cras ornare
-    placerat quam, congue venenatis dolor dapibus ut. Nulla convallis erat sed iaculis
-    faucibus. Aenean facilisis diam ut condimentum egestas. Cras eu ultrices massa.
-    Vivamus id est et ex posuere tempor sed et libero. Maecenas imperdiet elit at
-    nibh tempor efficitur. Pellentesque non urna sed nulla volutpat sagittis ac id
-    nulla.\r\n\r\nSuspendisse ac libero a nisl tempus interdum ac ut sem. Morbi purus
-    est, posuere porta finibus eget, sollicitudin sit amet lacus. Nulla sit amet mauris
-    elementum, efficitur ipsum vitae, pharetra tellus. Fusce elementum leo orci, eget
-    lacinia neque hendrerit eget. Proin placerat, mi id mollis porttitor, nisi libero
-    vulputate lorem, ut convallis lacus dui elementum quam. Ut gravida dignissim turpis
-    a porttitor. Proin id justo imperdiet, dignissim ligula ullamcorper, varius enim.
-    Suspendisse laoreet nec orci eget fringilla. Morbi a nunc ut nibh sagittis cursus
-    bibendum a lacus. Maecenas porta interdum venenatis. Phasellus sit amet nisl ac
-    lectus tincidunt fermentum. Integer at nunc convallis turpis ornare maximus. Nam
-    imperdiet, felis non molestie ultricies, erat quam sollicitudin purus, vitae efficitur
-    arcu est at elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\r\n\r\nNunc
-    dictum erat non convallis rutrum. Proin porttitor justo eu mi mollis, a porttitor
-    ipsum rhoncus. Praesent elementum augue a posuere congue. Sed laoreet id dolor
-    a condimentum. Pellentesque sollicitudin ornare viverra. Aliquam quis metus volutpat,
-    dapibus nisl vel, volutpat tortor. Donec quam lorem, commodo eget metus eu, pharetra
-    blandit eros. Praesent non posuere elit. Quisque porttitor rhoncus pellentesque.
-    Duis quis ipsum at neque luctus convallis. Aliquam erat volutpat. Fusce dapibus
-    sit amet ante non aliquam. In feugiat turpis gravida lacus venenatis, sed gravida
-    risus tincidunt. Duis posuere fermentum ante, maximus consectetur ligula. Integer
-    ultrices erat nunc, ut congue risus eleifend hendrerit.\r\n\r\nUt malesuada, justo
-    ac iaculis venenatis, justo tellus luctus lacus, et auctor ante nulla sed libero.
-    Sed euismod turpis nec tempor dictum. Nunc eget nibh sed ipsum maximus porta.
-    Pellentesque imperdiet rutrum mauris, sit amet venenatis sem accumsan at. Etiam
-    pulvinar turpis ac dolor sagittis efficitur. Donec neque tellus, finibus eu risus
-    non, elementum finibus massa. Etiam sit amet arcu at odio euismod pharetra at
-    eget elit. Ut bibendum tincidunt nulla quis vulputate. Sed vehicula mauris sem,
-    id condimentum neque scelerisque sed. Aliquam tincidunt sodales ex ut luctus.
-    Integer arcu arcu, congue quis vulputate a, imperdiet quis ex. Suspendisse congue
-    metus velit, id gravida turpis maximus eget. Vestibulum et velit id orci placerat
-    vehicula. Sed faucibus blandit laoreet.\r\n\r\nMaecenas rutrum ipsum et rhoncus
-    ornare. Proin nec congue urna, eu pulvinar eros. Sed massa odio, fringilla at
-    rutrum id, pulvinar eu elit. Duis hendrerit semper pellentesque. Donec metus urna,
-    dignissim non elit quis, eleifend dictum metus. Etiam consequat, ex sed efficitur
-    laoreet, arcu odio ultrices ipsum, eu congue sem urna in risus. Vivamus ut nisi
-    sagittis, tincidunt mauris eu, aliquam augue. Suspendisse et velit ut sem bibendum
-    vulputate. Pellentesque vel ligula in mi lobortis tincidunt id vitae sem.\r\n\r\nCurabitur
-    et sapien sem. In convallis pharetra tempus. Pellentesque condimentum risus non
-    eros pellentesque faucibus. Class aptent taciti sociosqu ad litora torquent per
-    conubia nostra, per inceptos himenaeos. Donec commodo nisi ac enim scelerisque,
-    eu lacinia felis lacinia. In accumsan ante lacus, et tempus erat venenatis sit
-    amet. Quisque suscipit tellus at volutpat convallis. Donec efficitur a quam in
-    lobortis.\r\n\r\nSuspendisse vitae eleifend magna, at pulvinar purus. Duis faucibus,
-    tortor sit amet dignissim commodo, magna nisl finibus ante, ut ultricies tellus
-    sem quis dui. Sed dapibus mi non felis convallis iaculis. Phasellus aliquam congue
-    nisi vel scelerisque. Proin quis lorem justo. Interdum et malesuada fames ac ante
-    ipsum primis in faucibus. Quisque porttitor eleifend quam, sed tincidunt ante.\r\n\r\nMauris
-    imperdiet nibh eu ullamcorper consequat. Aenean id fermentum nulla, eu fermentum
-    risus. Integer eu erat vitae neque luctus aliquet eu quis massa. Aliquam dictum
-    imperdiet neque vitae pellentesque. Ut ornare nisl nibh, a rhoncus lectus pharetra
-    ut. Nulla sed sem pellentesque, vestibulum nulla quis, ultrices erat. Curabitur
-    imperdiet, velit ut posuere pretium, nibh erat laoreet ipsum, vitae luctus lorem
-    tortor id ligula. Praesent eu erat a quam congue molestie eu ut orci. Nunc blandit
-    ex feugiat metus aliquam feugiat. Curabitur rhoncus ipsum vel urna auctor elementum.
-    Nunc convallis, tellus convallis gravida rhoncus, lectus mauris semper erat, quis
-    volutpat diam justo ac orci. Aliquam vitae mattis enim. Sed sed est eget nunc
-    luctus egestas. Aenean ac dignissim massa. Vestibulum at tempor leo, in pulvinar
-    elit."
+  m_text: "<align=\"center\"><b>DATA PROTECTION NOTICE</b></align>\r\n\r\nThis Data
+    Protection Notice (<b>\u201CNotice\u201D</b>) sets out the basis which [<i>OneConnect
+    Financial Technology Co. Ltd</i> ] (<b>\u201Cwe\u201D</b>, <b>\u201Cus\u201D</b>,
+    or <b>\u201Cour\u201D</b>) may collect, use, disclose or otherwise process personal
+    data of our customers in accordance with the Personal Data Protection Act (<b>\u201CPDPA\u201D</b>).
+    This Notice applies to personal  data in  our  possession or under our control,
+    including personal data in the possession of organizations which we have engaged
+    to collect, use, disclose or process personal data for our purposes.\r\n\r\n<b><u>PERSONAL
+    DATA</u></b>\r\n\r\n<indent=\"20%\"><b>1.</b> As used in this Notice:\r\n\r\n<b>\u201Ccustomer\u201D</b>
+    means an individual who (a) has contacted us through any means to find out more
+    about any goods or services we provide, or (b) may, or has, entered into a contract
+    with us for the supply of any goods or services by us; and\r\n\r\n<b>\u201Cpersonal
+    data\u201D </b> means data, whether true or not, about a customer who can be identified:
+    (a) from that data; or (b) from that data and other information to which we have
+    or are likely to have access.\r\n\r\n<b>2.</b> Depending on the nature of your
+    interaction with us, some examples of personal data which we may collect from
+    you include your name and identification information such as your NRIC number,
+    contact information such as your address, email address or telephone number, nationality,
+    gender, date of birth, marital status, photographs and other audio-visual information,
+    employment information and financial information such as credit card numbers,
+    debit card numbers or bank account information.\r\n\r\n<b>3.</b> Other terms used
+    in this Notice shall have the meanings given to them in the PDPA (where the context
+    so permits).</indent>\r\n\r\n<b><u>COLLECTION, USE AND DISCLOSURE OF PERSONAL
+    DATA</u></b>\r\n\r\n<indent=\u201D20%\u201D><b>4.</b> We generally do not collect
+    your personal data unless (a) it is provided to us voluntarily by you directly
+    or via a third party who has been duly authorised by you to disclose your personal
+    data to us (your <b>\u201Cauthorised representative\u201D</b>) after (i) you (or
+    your authorised representative) have been notified of the purposes for which the
+    data is collected, and (ii) you (or your authorised representative) have provided
+    written consent to the collection and usage of your personal data for those purposes,
+    or (b) collection and use of personal data without consent is permitted or required
+    by the PDPA or other laws. We shall seek your consent before collecting any additional
+    personal data and before using your personal data for a purpose which has not
+    been notified to you (except where permitted or authorised by law).\r\n\r\n<b>5.</b>
+    We may collect and use your personal data for any or all of the following purposes:\r\n\r\n<indent=\"50%\">(a)
+    performing obligations in the course of or in connection with our provision of
+    the goods and/or services requested by you;\r\n\r\n(b) verifying your identity;\r\n\r\n(c)
+    responding to, handling, and processing queries, requests, applications, complaints,
+    and feedback from you;\r\n\r\n(d) managing your relationship with us;\r\n\r\n(e)
+    processing payment or credit transactions;\r\n\r\n(f) sending your marketing information
+    about our goods or services including notifying you of our marketing events, initiatives
+    and promotions, lucky draws, membership and rewards schemes and other promotions;\r\n\r\n(g)
+    complying with any applicable laws, regulations, codes of practice, guidelines,
+    or rules, or to assist in law enforcement and investigations conducted by any
+    governmental and/or regulatory authority;\r\n\r\n(h) any other purposes for which
+    you have provided the information;\r\n\r\n(i) transmitting to any unaffiliated
+    third parties including our third party service providers and agents, and relevant
+    governmental and/or regulatory authorities, whether in Singapore or abroad, for
+    the aforementioned purposes; and\r\n\r\n(j) any other incidental business purposes
+    related to or in connection with the above.</indent>\r\n\r\n<b>6.</b> We may disclose
+    your personal data:\r\n\r\n<indent=\"50%\">(a) where such disclosure is required
+    for performing obligations in the course of or in connection with our provision
+    of the goods or services requested by you; or\r\n\r\n(b) to third party service
+    providers, agents and other organisations we have engaged to perform any of the
+    functions listed in clause 5 above for us.</indent>\r\n\r\n<b>7.</b> The purposes
+    listed in the above clauses may continue to apply even in situations where your
+    relationship with us (for example, pursuant to a contract) has been terminated
+    or altered in any way, for a reasonable period thereafter (including, where applicable,
+    a period to enable us to enforce our rights under any contract with you).</indent>\r\n\r\n<b><u>WITHDRAWING
+    YOUR CONSENT</u></b>\r\n\r\n<indent=\"20%\"><b>8.</b> The consent that you provide
+    for the collection, use and disclosure of your personal data will remain valid
+    until such time it is being withdrawn by you in writing. You may withdraw consent
+    and request us to stop using and/or disclosing your personal data for any or all
+    of the purposes listed above by submitting your request in writing or via email
+    to our Data Protection Officer at the contact details provided below.\r\n\r\n<b>9.</b>
+    Upon receipt of your written request to withdraw your consent, we may require
+    reasonable time (depending on the complexity of the request and its impact on
+    our relationship with you) for your request to be processed and for us to notify
+    you of the consequences of us acceding to the same, including any legal consequences
+    which may affect your rights and liabilities to us. In general, we shall seek
+    to process your request within ten (10) business days of receiving it.\r\n\r\n<b>10.</b>
+    Whilst we respect your decision to withdraw your consent, please note that depending
+    on the nature and scope of your request, we may not be in a position to continue
+    providing our goods or services to you and we shall, in such circumstances, notify
+    you before completing the processing of your request. Should you decide to cancel
+    your withdrawal of consent, please inform us in writing in the manner described
+    in clause 8 above.\r\n\r\n<b>11.</b> Please note that withdrawing consent does
+    not affect our right to continue to collect, use and disclose personal data where
+    such collection, use and disclose without consent is permitted or required under
+    applicable laws.</indent>\r\n\r\n<b><u>ACCESS TO AND CORRECTION OF PERSONAL DATA</u></b>\r\n\r\n<indent=\"20%\"><b>12.</b>
+    If you wish to make (a) an access request for access to a copy of the personal
+    data which we hold about you or information about the ways in which we use or
+    disclose your personal data, or (b) a correction request to correct or update
+    any of your personal data which we hold about you, you may submit your request
+    in writing or via email to our Data Protection Officer at the contact details
+    provided below.\r\n\r\n<b>13.</b> Please note that a reasonable fee may be charged
+    for an access request. If so, we will inform you of the fee before processing
+    your request.\r\n\r\n<b>14.</b> We will respond to your request as soon as reasonably
+    possible. Should we not be able to respond to your request within thirty (30)
+    days after receiving your request, we will inform you in writing within thirty
+    (30) days of the time by which we will be able to respond to your request. If
+    we are unable to provide you with any personal data or to make a correction requested
+    by you, we shall generally inform you of the reasons why we are unable to do so
+    (except where we are not required to do so under the PDPA).</indent>\r\n\r\n<b><u>PROTECTION
+    OF PERSONAL DATA</u></b>\r\n\r\n<indent=\"20%\"><b>15.</b> To safeguard your personal
+    data from unauthorised access, collection, use, disclosure, copying, modification,
+    disposal or similar risks, we have introduced appropriate administrative, physical
+    and technical measures such as up-to-date antivirus protection, encryption and
+    the use of privacy filters to secure all storage and transmission of personal
+    data by us, and disclosing personal data both internally and to our authorised
+    third party service providers and agents only on a need-to-know basis.\r\n\r\n<b>16.</b>
+    You should be aware, however, that no method of transmission over the Internet
+    or method of electronic storage is completely secure. While security cannot be
+    guaranteed, we strive to protect the security of your information and are constantly
+    reviewing and enhancing our information security measures.</indent>\r\n\r\n<b><u>ACCURACY
+    OF PERSONAL DATA</u></b>\r\n\r\n<indent=\"20%\"><b>17.</b> We generally rely on
+    personal data provided by you (or your authorised representative). In order to
+    ensure that your personal data is current, complete and accurate, please update
+    us if there are changes to your personal data by informing our Data Protection
+    Officer in writing or via email at the contact details provided below.</indent>\r\n\r\n<b><u>RETENTION
+    OF PERSONAL DATA</u></b>\r\n\r\n<indent=\"20%\"><b>18.</b> We may retain your
+    personal data for as long as it is necessary to fulfil the purpose for which it
+    was collected, or as required or permitted by applicable laws.\r\n\r\n<b>19.</b>
+    We will cease to retain your personal data, or remove the means by which the data
+    can be associated with you, as soon as it is reasonable to assume that such retention
+    no longer serves the purpose for which the personal data was collected, and is
+    no longer necessary for legal or business purposes.</indent>\r\n\r\n<b><u>TRANSFERS
+    OF PERSONAL DATA OUTSIDE OF SINGAPORE</u></b>\r\n\r\n<indent=\"20%\"><b>20.</b>
+    We generally do not transfer your personal data to countries outside of Singapore.
+    However, if we do so, we will obtain your consent for the transfer to be made
+    and we will take steps to ensure that your personal data continues to receive
+    a standard of protection that is at least comparable to that provided under the
+    PDPA.</indent>\r\n\r\n<b><u>DATA PROTECTION OFFICER</u></b>\r\n\r\n<indent=\"20%\"><b>21.</b>
+    You may contact our Data Protection Officer if you have any enquiries or feedback
+    on our personal data protection policies and procedures, or if you wish to make
+    any request, in the following manner:\r\n\r\n<i>OneConnect Financial Technology
+    (Singapore) Co. Pte. Ltd.</i>\r\n80 Pasir Panjang Road\r\n#26-81/82 \r\nMapletree
+    Business City II\r\nSingapore 117372</indent>\r\n\r\n<b><u>EFFECT OF NOTICE AND
+    CHANGES TO NOTICE</u></b>\r\n\r\n<indent=\"20%\"><b>22.</b> This Notice applies
+    in conjunction with any other notices, contractual clauses and consent clauses
+    that apply in relation to the collection, use and disclosure of your personal
+    data by us.\r\n\r\n<b>23.</b> We may revise this Notice from time to time without
+    any prior notice. You may determine if any such revision has taken place by referring
+    to the date on which this Notice was last updated. Your continued use of our services
+    constitutes your acknowledgement and acceptance of such changes.\r\n\r\nEffective
+    date :\t[<i>01 November 2019</i>]\r\nLast updated   :\t[<i>10 November 2019</i>]</indent>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6427,8 +6484,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6468,12 +6525,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1060023615}
-    characterCount: 6330
+    characterCount: 10303
     spriteCount: 0
-    spaceCount: 941
-    wordCount: 933
+    spaceCount: 1736
+    wordCount: 1682
     linkCount: 0
-    lineCount: 139
+    lineCount: 260
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -8672,8 +8729,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000045418456}
-  m_SizeDelta: {x: -50, y: 5753.78}
+  m_AnchoredPosition: {x: 0, y: 0.00048828125}
+  m_SizeDelta: {x: -50, y: 9567.57}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1484865556
 MonoBehaviour:
@@ -8904,7 +8961,7 @@ RectTransform:
   m_Father: {fileID: 664904093}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.7248765}
+  m_AnchorMin: {x: 0, y: 0.83454525}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -9024,8 +9081,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1517258993}
   m_HandleRect: {fileID: 1517258992}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.27512348
+  m_Value: 0.9999999
+  m_Size: 0.16545475
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
