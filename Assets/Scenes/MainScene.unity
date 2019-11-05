@@ -249,11 +249,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -526,6 +526,7 @@ MonoBehaviour:
   countdownImg: {fileID: 2078719107}
   countDownNos:
   - {fileID: 0}
+  - {fileID: 21300000, guid: bf67f8d5ffc9607478c7918a9c450632, type: 3}
   - {fileID: 21300000, guid: fcab0191945a81a47b18f4726f678d6f, type: 3}
   - {fileID: 21300000, guid: 9e2d3a5ed9e30ed46a14a5a561fec0ee, type: 3}
   - {fileID: 21300000, guid: ee6c821adfab080498a3652de5bfb175, type: 3}
@@ -734,6 +735,7 @@ MonoBehaviour:
   quizBGM: {fileID: 8300000, guid: 20dad7ca8698f88458dce44948578edb, type: 3}
   mainButtonClick: {fileID: 8300000, guid: a284760551a0ed341b3113eb2a861734, type: 3}
   countdownBeep: {fileID: 8300000, guid: d3d0479d7b5828a49a8530f8ce19a403, type: 3}
+  countdownLast: {fileID: 8300000, guid: 3f07702e32313834cb19f4cd72ef75cf, type: 3}
   correctSound: {fileID: 8300000, guid: 158246a9990dfd1499970156405a0a07, type: 3}
   wrongSound: {fileID: 8300000, guid: e5cee02135c9e634490d0544e3035a7e, type: 3}
   last5secs: {fileID: 8300000, guid: 05686624021c5454687b2f91f251bd82, type: 3}
@@ -975,11 +977,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -1180,8 +1182,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 62.999996, y: -105}
-  m_SizeDelta: {x: 680, y: 50}
+  m_AnchoredPosition: {x: 62.999996, y: -180}
+  m_SizeDelta: {x: 680, y: 120}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &249058230
 MonoBehaviour:
@@ -1203,7 +1205,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: I have read and agree to the <link=terms><color=white><u>Terms & Conditions</u></color></link>.
+  m_text: I acknowledge I have read, understood and agree to the <link=terms><color=white><u>Terms
+    & Conditions</u></color></link> of OneConnect Financial Technology Co, Ltd. 'Do
+    You Know? Quiz Game' and allow my information to be shared with OneConnect Financial
+    Technology Co, Ltd.  and its third party affiliates for the purpose of this campaign.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f71b962c7e64cd84884a3255c4273d96, type: 2}
   m_sharedMaterial: {fileID: 21944149340909892, guid: f71b962c7e64cd84884a3255c4273d96,
@@ -1232,7 +1237,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 27.9
+  m_fontSize: 22.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1243,7 +1248,7 @@ MonoBehaviour:
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 10
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1273,19 +1278,19 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 249058230}
-    characterCount: 48
+    characterCount: 292
     spriteCount: 0
-    spaceCount: 9
-    wordCount: 9
+    spaceCount: 48
+    wordCount: 47
     linkCount: 1
-    lineCount: 1
+    lineCount: 5
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -2009,7 +2014,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -2325,7 +2330,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1569440061}
   m_HandleRect: {fileID: 1569440060}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3204,11 +3209,11 @@ MonoBehaviour:
     lineCount: 0
     pageCount: 0
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -3560,11 +3565,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -3850,11 +3855,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -4247,11 +4252,11 @@ MonoBehaviour:
     lineCount: 0
     pageCount: 0
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -4876,11 +4881,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -5037,11 +5042,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -5903,11 +5908,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -6298,8 +6303,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 426.5, y: 0}
-  m_SizeDelta: {x: 853, y: 9567.57}
+  m_AnchoredPosition: {x: 425.62323, y: 0}
+  m_SizeDelta: {x: 851.24646, y: 9493.97}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1060023615
 MonoBehaviour:
@@ -6321,19 +6326,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "<align=\"center\"><b>DATA PROTECTION NOTICE</b></align>\r\n\r\nThis Data
-    Protection Notice (<b>\u201CNotice\u201D</b>) sets out the basis which [<i>OneConnect
-    Financial Technology Co. Ltd</i> ] (<b>\u201Cwe\u201D</b>, <b>\u201Cus\u201D</b>,
-    or <b>\u201Cour\u201D</b>) may collect, use, disclose or otherwise process personal
-    data of our customers in accordance with the Personal Data Protection Act (<b>\u201CPDPA\u201D</b>).
-    This Notice applies to personal  data in  our  possession or under our control,
-    including personal data in the possession of organizations which we have engaged
-    to collect, use, disclose or process personal data for our purposes.\r\n\r\n<b><u>PERSONAL
-    DATA</u></b>\r\n\r\n<indent=\"20%\"><b>1.</b> As used in this Notice:\r\n\r\n<b>\u201Ccustomer\u201D</b>
-    means an individual who (a) has contacted us through any means to find out more
-    about any goods or services we provide, or (b) may, or has, entered into a contract
-    with us for the supply of any goods or services by us; and\r\n\r\n<b>\u201Cpersonal
-    data\u201D </b> means data, whether true or not, about a customer who can be identified:
+  m_text: "This Data Protection Notice (<b>\u201CNotice\u201D</b>) sets out the basis
+    which [<i>OneConnect Financial Technology Co. Ltd</i> ] (<b>\u201Cwe\u201D</b>,
+    <b>\u201Cus\u201D</b>, or <b>\u201Cour\u201D</b>) may collect, use, disclose or
+    otherwise process personal data of our customers in accordance with the Personal
+    Data Protection Act (<b>\u201CPDPA\u201D</b>). This Notice applies to personal
+    \ data in  our  possession or under our control, including personal data in the
+    possession of organizations which we have engaged to collect, use, disclose or
+    process personal data for our purposes.\r\n\r\n<b><u>PERSONAL DATA</u></b>\r\n\r\n<indent=\"20%\"><b>1.</b>
+    As used in this Notice:\r\n\r\n<b>\u201Ccustomer\u201D</b> means an individual
+    who (a) has contacted us through any means to find out more about any goods or
+    services we provide, or (b) may, or has, entered into a contract with us for the
+    supply of any goods or services by us; and\r\n\r\n<b>\u201Cpersonal data\u201D
+    </b> means data, whether true or not, about a customer who can be identified:
     (a) from that data; or (b) from that data and other information to which we have
     or are likely to have access.\r\n\r\n<b>2.</b> Depending on the nature of your
     interaction with us, some examples of personal data which we may collect from
@@ -6525,15 +6530,15 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1060023615}
-    characterCount: 10303
+    characterCount: 10277
     spriteCount: 0
-    spaceCount: 1736
-    wordCount: 1682
+    spaceCount: 1732
+    wordCount: 1679
     linkCount: 0
-    lineCount: 260
+    lineCount: 258
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -6931,11 +6936,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -8730,7 +8735,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.00048828125}
-  m_SizeDelta: {x: -50, y: 9567.57}
+  m_SizeDelta: {x: -50, y: 9493.97}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1484865556
 MonoBehaviour:
@@ -8961,7 +8966,7 @@ RectTransform:
   m_Father: {fileID: 664904093}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.83454525}
+  m_AnchorMin: {x: 0, y: 0.83326244}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -9081,8 +9086,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1517258993}
   m_HandleRect: {fileID: 1517258992}
   m_Direction: 2
-  m_Value: 0.9999999
-  m_Size: 0.16545475
+  m_Value: 1
+  m_Size: 0.16673744
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9381,11 +9386,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -9542,11 +9547,11 @@ MonoBehaviour:
     lineCount: 0
     pageCount: 0
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -9813,11 +9818,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -10787,11 +10792,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -11971,11 +11976,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -12596,11 +12601,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -12822,11 +12827,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:

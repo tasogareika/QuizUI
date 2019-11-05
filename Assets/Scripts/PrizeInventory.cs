@@ -56,7 +56,7 @@ public class PrizeInventory : MonoBehaviour
         }
         else if (score <= 19 && score >= 13)
         {
-            checkStock(2);
+            checkStock(2);  
         }
         else if (score <= 12 && score >= 6)
         {

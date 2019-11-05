@@ -18,7 +18,7 @@ public class LandingStartHandler : MonoBehaviour
 
     private void Start()
     {
-        secondCount = 3;
+        secondCount = 4;
         AnimationHandler.singleton.attachFunction("LandingStartHandler");
         landingPage.GetComponent<Animator>().Play("TitlePulse");
         countdown.GetComponent<Animator>().Play("CountStart");
@@ -61,7 +61,7 @@ public class LandingStartHandler : MonoBehaviour
         BackendHandler.singleton.playMainButtonClick();
         logo.GetComponent<ObjectFloat>().enabled = false;
         logo.GetComponent<Animator>().enabled = true;
-        secondCount = 3;
+        secondCount = 4;
         landingPage.GetComponent<Animator>().Play("MoveToTut");
         countdownImg.GetComponent<Image>().sprite = countDownNos[secondCount];
         countdown.GetComponent<Animator>().Play("MoveToCount");
@@ -132,7 +132,14 @@ public class LandingStartHandler : MonoBehaviour
 
     private IEnumerator countLoop (float waitTime)
     {
-        BackendHandler.singleton.playCountdownBeep();
+        if (secondCount > 1)
+        {
+            BackendHandler.singleton.playCountdownBeep();
+        } else
+        {
+            BackendHandler.singleton.playCountdownLast();
+        }
+
         yield return new WaitForSeconds(waitTime);
         toggleCount();
     }

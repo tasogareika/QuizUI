@@ -6,7 +6,7 @@ public class BackendHandler : MonoBehaviour
     public static BackendHandler singleton;
     private AudioSource audioPlayer;
     public AudioSource BGplayer, xtraPlayer;
-    public AudioClip mainBGM, quizBGM, mainButtonClick, countdownBeep, correctSound, wrongSound, last5secs, timeUpSound, quizCompleteSFX, audienceCheerSFX, pageshiftSFX, errorSFX;
+    public AudioClip mainBGM, quizBGM, mainButtonClick, countdownBeep, countdownLast, correctSound, wrongSound, last5secs, timeUpSound, quizCompleteSFX, audienceCheerSFX, pageshiftSFX, errorSFX;
     private int clickNo;
     private float clickTime, clickDelay;
 
@@ -131,6 +131,12 @@ public class BackendHandler : MonoBehaviour
     public void playCountdownBeep()
     {
         audioPlayer.clip = countdownBeep;
+        audioPlayer.Play();
+    }
+
+    public void playCountdownLast()
+    {
+        audioPlayer.clip = countdownLast;
         audioPlayer.Play();
     }
 
