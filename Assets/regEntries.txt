@@ -1,3 +1,5 @@
 Date,Time,Name,Desgination,Company,Email Address,Mobile No.,Score,Prize Given
 31/10/2019,3:50 PM,First Last,Job Title,A Company,email@hotmail.com,68536521,13,Wireless Mouse
 31/10/2019,4:27 PM,Gregr Hreh,erherh,htjther,email2@hotmail.com,36437579,19,Wireless Mouse
+6/11/2019,6:21 PM,First Last,Job,Title,email@gmail.com,4365787967,15,Wireless Mouse
+6/11/2019,6:24 PM,First  Last,Hobbit,Isengard,email@yahoo.com,57574586,18,Nothing

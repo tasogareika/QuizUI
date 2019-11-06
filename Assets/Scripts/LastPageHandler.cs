@@ -22,7 +22,7 @@ public class LastPageHandler : MonoBehaviour
 
     public void showLast()
     {
-        maxTimer = 12;
+        maxTimer = 62;
         currTimer = maxTimer;
         lastPage.SetActive(true);
         RegisterHandler.singleton.timerRun = false;

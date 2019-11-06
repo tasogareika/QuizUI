@@ -9,8 +9,8 @@ using UnityEngine.EventSystems;
 public class RegisterHandler : MonoBehaviour
 {
     public static RegisterHandler singleton;
-    [SerializeField] private GameObject registerPage, termsPage;
-    [SerializeField] private Image normalInputBG, highlightInputBG;
+    [SerializeField] private GameObject registerPage, termsPage, emailErrorMsg;
+    [SerializeField] private Scrollbar termsScroll;
     public List<TMP_InputField> entryFields;
     public Toggle checkTnC;
     public Color inputSelectColor;
@@ -134,6 +134,7 @@ public class RegisterHandler : MonoBehaviour
             t.text = null;
         }
         checkTnC.isOn = false;
+        emailErrorMsg.SetActive(false);
         currTimer = maxTimer;
         timerRun = true;
         mobileShift = false;
@@ -157,6 +158,7 @@ public class RegisterHandler : MonoBehaviour
 
     public void closeTerms()
     {
+        termsScroll.value = 1;
         termsPage.SetActive(false);
         AnimationHandler.singleton.toggleButton();
     }
@@ -196,6 +198,11 @@ public class RegisterHandler : MonoBehaviour
                             if (emailAdd.Length < 5 || !emailAdd.Contains("@") || !emailAdd.Contains(".") || checkDuplicates())
                             {
                                 entry.GetComponent<Image>().color = Color.red;
+
+                                if (checkDuplicates())
+                                {
+                                    emailErrorMsg.SetActive(true);
+                                }
                             }
                         }
 
@@ -223,6 +230,21 @@ public class RegisterHandler : MonoBehaviour
                     if (emailAdd.Length < 5 || !emailAdd.Contains("@") || !emailAdd.Contains(".") || checkDuplicates())
                     {
                         entryFields[i].GetComponent<Image>().color = Color.red;
+
+                        if (checkDuplicates())
+                        {
+                            emailErrorMsg.SetActive(true);
+                        }
+
+                        if (entryFields[i + 1].text.Length < 8)
+                        {
+                            entryFields[i + 1].GetComponent<Image>().color = Color.red;
+                        }
+
+                        if (!checkTnC.isOn)
+                        {
+                            checkTnC.transform.GetChild(0).GetComponent<Image>().color = Color.red;
+                        }
                         return false;
                     }
                 }
@@ -232,6 +254,11 @@ public class RegisterHandler : MonoBehaviour
                     if (entryFields[i].text.Length < 8)
                     {
                         entryFields[i].GetComponent<Image>().color = Color.red;
+
+                        if (!checkTnC.isOn)
+                        {
+                            checkTnC.transform.GetChild(0).GetComponent<Image>().color = Color.red;
+                        }
                         return false;
                     }
                 }
@@ -276,6 +303,8 @@ public class RegisterHandler : MonoBehaviour
                     KeyboardHandler.singleton.showKeyboard();
                 }
                 KeyboardHandler.singleton.currInput = obj.GetComponent<TMP_InputField>();
+
+                emailErrorMsg.SetActive(false);
 
                 if (entry.name == "MobileInput" && mobileShift == false)
                 {
